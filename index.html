@@ -7,11 +7,19 @@
     <meta name="description" content="Music, books, artwork, and frequency-encoded art from Tilt The God / I AM / Z3V3N. Home of C=ai²: It's Been You All Along.">
     <meta name="keywords" content="Tilt The God, Z3V3N, I AM, Designed By Divine, 528Hz, frequency music, hip hop, artwork, merch">
     
-    <!-- Open Graph -->
+    <!-- Open Graph for social sharing -->
     <meta property="og:title" content="Designed By Divine | Tilt The God • I AM / Z3V3N">
-    <meta property="og:description" content="Music, books, artwork, and frequency-encoded art. Est. 1996.">
+    <meta property="og:description" content="Messages from a father to his son across time. Music, letters, and memories by Tilt The God / Z3V3N.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://designed-by-divine.com">
+    <meta property="og:image" content="https://designed-by-divine.com/images/isaac-collage.jpg">
+    <meta property="og:image:alt" content="Cody Fritz and his son Isaac - A father's love">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Designed By Divine | Tilt The God • I AM / Z3V3N">
+    <meta name="twitter:description" content="Messages from a father to his son across time. Music, letters, and memories by Tilt The God / Z3V3N.">
+    <meta name="twitter:image" content="https://designed-by-divine.com/images/isaac-collage.jpg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -952,6 +960,175 @@
             fill: currentColor;
         }
         
+        /* ==================== FOR ISAAC TEASER SECTION ==================== */
+        .isaac-teaser {
+            background: linear-gradient(180deg, var(--black) 0%, rgba(45, 27, 78, 0.3) 50%, var(--black) 100%);
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .isaac-teaser::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .isaac-teaser .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .isaac-visual {
+            position: relative;
+        }
+
+        .isaac-collage {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 4px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .isaac-collage:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(139, 92, 246, 0.3);
+            border-color: var(--purple);
+        }
+
+        .isaac-content {
+            text-align: left;
+        }
+
+        .isaac-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .isaac-content blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--purple);
+        }
+
+        .btn-isaac-enter {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border: 1px solid var(--purple);
+            background: transparent;
+            color: var(--purple);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .btn-isaac-enter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 100%);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-isaac-enter:hover {
+            color: var(--white);
+        }
+
+        .btn-isaac-enter:hover::before {
+            left: 0;
+        }
+
+        .isaac-subtitle {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .isaac-teaser .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .isaac-visual {
+                order: -1;
+            }
+
+            .isaac-collage {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .isaac-content {
+                text-align: center;
+            }
+
+            .isaac-content blockquote {
+                border-left: none;
+                padding-left: 0;
+                border-top: 2px solid var(--purple);
+                border-bottom: 2px solid var(--purple);
+                padding: 1.5rem 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .isaac-teaser .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+            }
+
+            .isaac-visual {
+                margin-bottom: 0;
+            }
+
+            .isaac-content {
+                text-align: left;
+            }
+
+            .isaac-teaser blockquote {
+                margin-left: 0;
+            }
+        }
+
         /* ==================== ABOUT SECTION ==================== */
         #about {
             background: var(--black);
@@ -1147,7 +1324,33 @@
             <a href="#books" class="btn btn-magenta">Read</a>
         </div>
     </section>
-    
+
+    <!-- For Isaac Section -->
+    <section id="for-isaac" class="isaac-teaser">
+        <div class="container">
+            <div class="isaac-visual">
+                <img
+                    src="images/isaac-collage.jpg"
+                    alt="Cody and Isaac - A father's love across time"
+                    class="isaac-collage"
+                />
+            </div>
+            <div class="isaac-content">
+                <h2>For My Son</h2>
+                <blockquote>
+                    "To Isaac: Every song, every story, every creation—I build worlds
+                    so you can always find your way home to me."
+                </blockquote>
+                <a href="/for-isaac.html" class="btn-isaac-enter">
+                    Enter This Space &rarr;
+                </a>
+                <p class="isaac-subtitle">
+                    Letters, music, and memories waiting across time
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Music Section with Player -->
     <section id="music">
         <div class="section-header">
@@ -1549,7 +1752,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="section-header">

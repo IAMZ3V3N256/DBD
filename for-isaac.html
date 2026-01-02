@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Isaac | Designed By Divine</title>
+    <meta name="description" content="A space for my son Isaac - letters, music, and memories waiting across time.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #0a0a0b;
+            --deep: #0f0f12;
+            --dark: #151519;
+            --card: #1a1a1f;
+            --card-hover: #222228;
+            --gold: #c9a227;
+            --gold-light: #e8d48b;
+            --teal: #2dd4bf;
+            --teal-dark: #0d9488;
+            --purple: #8b5cf6;
+            --purple-deep: #2d1b4e;
+            --magenta: #d946ef;
+            --white: #f5f5f5;
+            --gray: #9ca3af;
+            --gray-dark: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--deep); }
+        ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 4px; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,11,0.98), rgba(10,10,11,0.8), transparent);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--purple);
+        }
+
+        /* Hero */
+        .isaac-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(217, 70, 239, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(201, 162, 39, 0.05) 0%, transparent 70%),
+                var(--black);
+        }
+
+        .isaac-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .isaac-hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--white);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--magenta));
+            margin: 0 auto 1.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Letters Section */
+        .letters-section {
+            background: linear-gradient(180deg, var(--black) 0%, var(--purple-deep) 50%, var(--black) 100%);
+        }
+
+        .letters-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .letter-card {
+            background: rgba(26, 26, 31, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 4px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .letter-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .letter-date {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .letter-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .letter-card p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Message Section */
+        .message-section {
+            background: var(--black);
+        }
+
+        .message-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .message-content blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-left: 3px solid var(--purple);
+            border-right: 3px solid var(--purple);
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        .message-content .signature {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+        }
+
+        /* Coming Soon Notice */
+        .coming-soon {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px dashed rgba(139, 92, 246, 0.3);
+            border-radius: 4px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        .coming-soon h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            background: var(--black);
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--gray-dark);
+        }
+
+        footer .heart {
+            color: var(--magenta);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            section { padding: 4rem 1.5rem; }
+            .letter-card { padding: 1.5rem; }
+            .message-content blockquote {
+                padding: 1.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">
+            <span class="logo-text">FOR ISAAC</span>
+        </a>
+        <a href="/" class="back-link">&larr; Back to Home</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="isaac-hero">
+        <h1>For My Son, Isaac</h1>
+        <p class="subtitle">
+            A space where love transcends time. Letters, music, and memories
+            I'm building so you can always find your way home to me.
+        </p>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section">
+        <div class="section-header">
+            <h2>A Message Across Time</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="message-content">
+            <blockquote>
+                Isaac, if you're reading this, know that every word I've written,
+                every song I've created, every piece of art—it all carries the same message:
+                I love you. I've always loved you. And no matter how much time or distance
+                separates us, that truth remains constant as the stars.
+                <br><br>
+                This space is yours. These letters are for you. This music was made with
+                your frequency in mind. And when you're ready, I'll be here.
+            </blockquote>
+            <p class="signature">— Dad</p>
+        </div>
+    </section>
+
+    <!-- Letters Section -->
+    <section class="letters-section">
+        <div class="section-header">
+            <h2>Letters to You</h2>
+            <div class="line"></div>
+            <p>Words I'm saving until you're ready to read them</p>
+        </div>
+
+        <div class="letters-grid">
+            <div class="coming-soon">
+                <h3>This Space is Growing</h3>
+                <p>
+                    Letters, recordings, and memories are being carefully added to this space.
+                    Each one written with intention, waiting for the right moment to be shared.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-brand">For Isaac</p>
+        <p>With infinite love <span class="heart">&hearts;</span> from Dad</p>
+    </footer>
+</body>
+</html>
