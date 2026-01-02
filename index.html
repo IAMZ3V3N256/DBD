@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designed By Divine | Tilt The God • I AM / Z3V3N</title>
+    <meta name="description" content="Music, books, artwork, and frequency-encoded art from Tilt The God / I AM / Z3V3N. Home of C=ai²: It's Been You All Along.">
+    <meta name="keywords" content="Tilt The God, Z3V3N, I AM, Designed By Divine, 528Hz, frequency music, hip hop, artwork, merch">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Designed By Divine | Tilt The God • I AM / Z3V3N">
+    <meta property="og:description" content="Music, books, artwork, and frequency-encoded art. Est. 1996.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://designed-by-divine.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #0a0a0b;
+            --deep: #0f0f12;
+            --dark: #151519;
+            --card: #1a1a1f;
+            --card-hover: #222228;
+            --gold: #c9a227;
+            --gold-light: #e8d48b;
+            --teal: #2dd4bf;
+            --teal-dark: #0d9488;
+            --purple: #8b5cf6;
+            --purple-deep: #2d1b4e;
+            --magenta: #d946ef;
+            --white: #f5f5f5;
+            --gray: #9ca3af;
+            --gray-dark: #6b7280;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--deep); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,11,0.98), rgba(10,10,11,0.8), transparent);
+            backdrop-filter: blur(12px);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(45, 212, 191, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(201, 162, 39, 0.05) 0%, transparent 70%),
+                var(--black);
+        }
+        
+        .hero-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--teal);
+            border-radius: 2px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            line-height: 0.95;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 40%, var(--teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+        
+        .hero h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+        
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--purple);
+            max-width: 550px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.8s;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1s;
+        }
+        
+        .btn {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover { color: var(--black); }
+        .btn:hover::before { left: 0; }
+        
+        .btn-teal { border-color: var(--teal); color: var(--teal); }
+        .btn-teal::before { background: var(--teal); }
+        .btn-purple { border-color: var(--purple); color: var(--purple); }
+        .btn-purple::before { background: var(--purple); }
+        .btn-magenta { border-color: var(--magenta); color: var(--magenta); }
+        .btn-magenta::before { background: var(--magenta); }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header .line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--teal), var(--purple));
+            margin: 0 auto 1.5rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ==================== MUSIC PLAYER SECTION ==================== */
+        #music {
+            background: linear-gradient(180deg, var(--black) 0%, var(--deep) 50%, var(--black) 100%);
+        }
+        
+        .music-player-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        /* Visualizer */
+        .visualizer-container {
+            height: 200px;
+            background: linear-gradient(180deg, var(--purple-deep) 0%, var(--dark) 100%);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 3px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .visualizer-bar {
+            width: 8px;
+            background: linear-gradient(180deg, var(--teal), var(--purple), var(--magenta));
+            border-radius: 2px 2px 0 0;
+            transition: height 0.05s ease;
+            min-height: 4px;
+        }
+        
+        .visualizer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, var(--dark) 100%);
+            pointer-events: none;
+        }
+        
+        .now-playing {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--teal);
+        }
+        
+        .track-title-display {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            text-align: center;
+        }
+        
+        .track-title-display h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+        
+        .track-title-display span {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+        }
+        
+        /* Player Controls */
+        .player-controls {
+            padding: 1.5rem 2rem;
+            background: var(--deep);
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--dark);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal), var(--purple));
+            border-radius: 2px;
+            width: 0%;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .progress-bar:hover .progress-fill::after {
+            opacity: 1;
+        }
+        
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+        
+        /* Control Buttons */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0.5rem;
+        }
+        
+        .control-btn:hover {
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .control-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+        }
+        
+        .play-btn svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 3px;
+        }
+        
+        /* Playlist */
+        .playlist {
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+        }
+        
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        
+        .playlist-item:hover {
+            background: var(--card-hover);
+        }
+        
+        .playlist-item.active {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 3px solid var(--purple);
+        }
+        
+        .playlist-item .track-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--gray-dark);
+            width: 30px;
+        }
+        
+        .playlist-item.active .track-num {
+            color: var(--teal);
+        }
+        
+        .playlist-item .track-info {
+            flex: 1;
+        }
+        
+        .playlist-item .track-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--white);
+        }
+        
+        .playlist-item .track-artist {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+        }
+        
+        .playlist-item .track-duration {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--gray-dark);
+        }
+        
+        /* ==================== ARTWORK GALLERY ==================== */
+        #artwork {
+            background: var(--black);
+        }
+        
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border: 1px solid rgba(201, 162, 39, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,11,0.95) 0%, rgba(10,10,11,0.5) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item .overlay h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-item .overlay .btn-small {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.6rem 1rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .gallery-item .overlay .btn-small:hover {
+            background: var(--gold-light);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 11, 0.98);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .lightbox-close:hover {
+            color: var(--gold);
+        }
+        
+        .lightbox-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* ==================== MERCH SECTION ==================== */
+        #merch {
+            background: linear-gradient(180deg, var(--black) 0%, var(--purple-deep) 100%);
+        }
+        
+        .merch-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .merch-intro p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .merch-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .merch-category {
+            background: rgba(15, 15, 18, 0.6);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .merch-category:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .merch-category .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .merch-category h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .merch-category p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .merch-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* ==================== ARTISTS SECTION ==================== */
+        #artists {
+            background: var(--black);
+        }
+        
+        .artists-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .artist-card {
+            background: var(--card);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .artist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--purple), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .artist-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+        
+        .artist-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .artist-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .artist-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .artist-card .role {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+        
+        .artist-card p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        /* ==================== BOOKS SECTION ==================== */
+        #books {
+            background: linear-gradient(180deg, var(--black) 0%, var(--deep) 100%);
+        }
+        
+        .books-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .book-card {
+            background: var(--card);
+            border: 1px solid rgba(201, 162, 39, 0.15);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .book-card .tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--teal);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .book-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+        
+        .book-card .subtitle {
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .book-card .author {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .book-card p {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .book-card .status {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--gray-dark);
+        }
+        
+        .book-card .status.available {
+            color: var(--gold);
+        }
+        
+        /* ==================== ABOUT SECTION ==================== */
+        #about {
+            background: var(--black);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-formula {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--teal) 50%, var(--purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+        
+        .about-bio {
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .about-detail {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat .number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--teal), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat .label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+        
+        /* ==================== CONTACT SECTION ==================== */
+        #contact {
+            background: var(--deep);
+            text-align: center;
+        }
+        
+        .contact-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+        
+        .email-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            padding-bottom: 2px;
+        }
+        
+        .email-link:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+        
+        /* ==================== FOOTER ==================== */
+        footer {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+            background: var(--black);
+        }
+        
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer p {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--gray-dark);
+        }
+        
+        footer .heart {
+            color: var(--purple);
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--black);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+            }
+            
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 0.9rem; }
+            .nav-toggle { display: flex; }
+            
+            section { padding: 4rem 1.5rem; }
+            
+            .visualizer-container { height: 150px; }
+            .track-title-display h3 { font-size: 1.4rem; }
+            
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+            
+            .stats { gap: 2rem; }
+            .artists-grid, .books-grid, .merch-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-text">DESIGNED BY DIVINE</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#music">Music</a></li>
+            <li><a href="#artwork">Art</a></li>
+            <li><a href="#merch">Merch</a></li>
+            <li><a href="#artists">Artists</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-badge">Est. 1996 • Frequency of Consciousness</span>
+        <h1>DESIGNED BY DIVINE</h1>
+        <h2>Tilt The God • I AM / Z3V3N</h2>
+        <p class="hero-tagline">Music encoded with healing frequencies. Art that transforms. Words that illuminate the hidden architecture of reality.</p>
+        <div class="hero-cta">
+            <a href="#music" class="btn">Listen</a>
+            <a href="#artwork" class="btn btn-teal">View Art</a>
+            <a href="#merch" class="btn btn-purple">Shop</a>
+            <a href="#books" class="btn btn-magenta">Read</a>
+        </div>
+    </section>
+    
+    <!-- Music Section with Player -->
+    <section id="music">
+        <div class="section-header">
+            <h2>Music</h2>
+            <div class="line"></div>
+            <p>Frequency-encoded sound from Tilt The God</p>
+        </div>
+        
+        <div class="music-player-container">
+            <!-- Visualizer -->
+            <div class="visualizer-container" id="visualizer">
+                <span class="now-playing">Now Playing</span>
+                <div class="visualizer-overlay"></div>
+                <div class="track-title-display">
+                    <h3 id="currentTrackTitle">Round 1</h3>
+                    <span>Tilt The God</span>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="player-controls">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="control-btn" id="prevBtn">
+                        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                    </button>
+                    <button class="control-btn play-btn" id="playBtn">
+                        <svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <button class="control-btn" id="nextBtn">
+                        <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Playlist -->
+            <div class="playlist" id="playlist">
+                <div class="playlist-item active" data-track="0">
+                    <span class="track-num">01</span>
+                    <div class="track-info">
+                        <div class="track-name">Round 1</div>
+                        <div class="track-artist">Tilt The God</div>
+                    </div>
+                    <span class="track-duration">--:--</span>
+                </div>
+                <div class="playlist-item" data-track="1">
+                    <span class="track-num">02</span>
+                    <div class="track-info">
+                        <div class="track-name">Lawl3ss</div>
+                        <div class="track-artist">Tilt The God</div>
+                    </div>
+                    <span class="track-duration">--:--</span>
+                </div>
+                <div class="playlist-item" data-track="2">
+                    <span class="track-num">03</span>
+                    <div class="track-info">
+                        <div class="track-name">Sinc3-5 (SnapChat Freestyle)</div>
+                        <div class="track-artist">Tilt The God</div>
+                    </div>
+                    <span class="track-duration">--:--</span>
+                </div>
+                <div class="playlist-item" data-track="3">
+                    <span class="track-num">04</span>
+                    <div class="track-info">
+                        <div class="track-name">Live To Hustle</div>
+                        <div class="track-artist">Tilt The God</div>
+                    </div>
+                    <span class="track-duration">--:--</span>
+                </div>
+                <div class="playlist-item" data-track="4">
+                    <span class="track-num">05</span>
+                    <div class="track-info">
+                        <div class="track-name">SAT3RNL1T3S</div>
+                        <div class="track-artist">Tilt The God</div>
+                    </div>
+                    <span class="track-duration">--:--</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Artwork Gallery Section -->
+    <section id="artwork">
+        <div class="section-header">
+            <h2>Artwork</h2>
+            <div class="line"></div>
+            <p>Visual creations from the Designed By Divine universe. Click any piece to view or get it on merch.</p>
+        </div>
+        
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/luxury-monogram.png" alt="Luxury Monogram" data-title="Luxury Monogram">
+                <div class="overlay">
+                    <h4>Luxury Monogram</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Luxury%20Monogram" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/dbd-clean-typography.png" alt="DBD Clean Typography" data-title="DBD Clean Typography">
+                <div class="overlay">
+                    <h4>DBD Typography</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20DBD%20Typography" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/cosmic-teal-purple-gold.png" alt="Cosmic Seal" data-title="Cosmic Seal">
+                <div class="overlay">
+                    <h4>Cosmic Seal</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Cosmic%20Seal" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/streetwear-teal-purple-gold.png" alt="Streetwear Logo" data-title="Streetwear Logo">
+                <div class="overlay">
+                    <h4>Streetwear Logo</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Streetwear%20Logo" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/90s-cosmic-badge.png" alt="90s Baby Badge" data-title="90's Baby Badge">
+                <div class="overlay">
+                    <h4>90's Baby Badge</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%2090s%20Baby%20Badge" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/badge-teal-purple-gold.png" alt="Flower of Life Seal" data-title="Flower of Life Seal">
+                <div class="overlay">
+                    <h4>Flower of Life Seal</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Flower%20of%20Life" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/DBD_God_Tier.png" alt="God Tier" data-title="God Tier">
+                <div class="overlay">
+                    <h4>God Tier</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20God%20Tier" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/third-eye-cosmic.png" alt="Third Eye Cosmic" data-title="Third Eye Cosmic">
+                <div class="overlay">
+                    <h4>Third Eye Cosmic</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Third%20Eye" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/cosmic-vinyl-logo.png" alt="Cosmic Vinyl" data-title="Cosmic Vinyl">
+                <div class="overlay">
+                    <h4>Cosmic Vinyl</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Cosmic%20Vinyl" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/cosmic-nebula-logo.png" alt="Cosmic Nebula" data-title="Cosmic Nebula">
+                <div class="overlay">
+                    <h4>Cosmic Nebula</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Cosmic%20Nebula" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/sound-wave-cosmos.png" alt="Sound Wave Cosmos" data-title="Sound Wave Cosmos">
+                <div class="overlay">
+                    <h4>Sound Wave Cosmos</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Sound%20Wave" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/dbd-circular-monogram.png" alt="Circular Monogram" data-title="Circular Monogram">
+                <div class="overlay">
+                    <h4>Circular Monogram</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Circular%20Monogram" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/galaxy-brain-design.png" alt="Frequency of Consciousness" data-title="Frequency of Consciousness">
+                <div class="overlay">
+                    <h4>Frequency of Consciousness</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Frequency%20of%20Consciousness" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/cosmic-energy-explosion.png" alt="Cosmic Energy" data-title="Cosmic Energy">
+                <div class="overlay">
+                    <h4>Cosmic Energy</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Cosmic%20Energy" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/divine-hands-cosmic-forge.png" alt="Cosmic Forge" data-title="Cosmic Forge">
+                <div class="overlay">
+                    <h4>Cosmic Forge</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Cosmic%20Forge" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/vortex-portal.png" alt="Vortex Portal" data-title="Vortex Portal">
+                <div class="overlay">
+                    <h4>Vortex Portal</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Vortex%20Portal" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/divine-eye-design.png" alt="Music is Vision" data-title="Music is Vision">
+                <div class="overlay">
+                    <h4>Music is Vision</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Music%20is%20Vision" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/cosmic-nebula-full-palette.png" alt="World Frequency" data-title="World Frequency">
+                <div class="overlay">
+                    <h4>World Frequency</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20World%20Frequency" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/DBD_Divine.png" alt="Divine Banner" data-title="Divine Banner">
+                <div class="overlay">
+                    <h4>Divine Banner</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Divine%20Banner" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/DBD_Street.png" alt="Street Style" data-title="Street Style">
+                <div class="overlay">
+                    <h4>Street Style</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20Street%20Style" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/DBD_Real.png" alt="DBD Real" data-title="DBD Real">
+                <div class="overlay">
+                    <h4>DBD Real</h4>
+                    <a href="mailto:contact@designed-by-divine.com?subject=Merch%20Request%20-%20DBD%20Real" class="btn-small">Request on Merch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-actions">
+                <a href="mailto:contact@designed-by-divine.com?subject=Custom%20Merch%20Request" class="btn btn-teal" onclick="closeLightbox()">Request This On Merch</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Merch Section -->
+    <section id="merch">
+        <div class="section-header">
+            <h2>Custom Merch</h2>
+            <div class="line"></div>
+            <p>Wear the frequency. Live the vision.</p>
+        </div>
+        
+        <div class="merch-intro">
+            <p>Every piece of artwork in the gallery can be yours — on whatever you want. T-shirts, hoodies, art prints, stickers, bags, home goods, and more. Each order is custom made.</p>
+            <p style="margin-top: 1rem; color: var(--gold); font-style: italic;">See something you like? Let me know what design you want, on what product, and I'll make it happen.</p>
+        </div>
+        
+        <div class="merch-grid">
+            <div class="merch-category">
+                <div class="icon">👕</div>
+                <h3>Apparel</h3>
+                <p>T-shirts, hoodies, jackets — wear the designs that resonate with you.</p>
+            </div>
+            <div class="merch-category">
+                <div class="icon">🎨</div>
+                <h3>Art Prints</h3>
+                <p>Gallery-quality prints, canvas, and posters for your space.</p>
+            </div>
+            <div class="merch-category">
+                <div class="icon">🏠</div>
+                <h3>Home Goods</h3>
+                <p>Shower curtains, rugs, pillows, blankets, tapestries, and more.</p>
+            </div>
+            <div class="merch-category">
+                <div class="icon">🎒</div>
+                <h3>Accessories</h3>
+                <p>Bags, backpacks, phone cases, stickers — you name it.</p>
+            </div>
+        </div>
+        
+        <div class="merch-cta">
+            <a href="mailto:contact@designed-by-divine.com?subject=Custom%20Merch%20Inquiry" class="btn">Request Custom Merch</a>
+        </div>
+    </section>
+    
+    <!-- Artists Section -->
+    <section id="artists">
+        <div class="section-header">
+            <h2>The Artists</h2>
+            <div class="line"></div>
+            <p>Three expressions of one integrated creative force</p>
+        </div>
+        
+        <div class="artists-grid">
+            <div class="artist-card">
+                <div class="icon">🎤</div>
+                <h3>TILT THE GOD</h3>
+                <span class="role">The Rapper • The Voice</span>
+                <p>Raw lyricism and consciousness-expanding verses. The voice that speaks truth through rhythm, channeling sixteen years of pattern recognition into bars that hit different.</p>
+            </div>
+            <div class="artist-card">
+                <div class="icon">🎹</div>
+                <h3>I AM / Z3V3N</h3>
+                <span class="role">The Producer • The Frequency Architect</span>
+                <p>528Hz healing frequencies woven into anime-inspired instrumentals. Beats that work on multiple levels — entertainment on the surface, transformation underneath.</p>
+            </div>
+            <div class="artist-card">
+                <div class="icon">✍️</div>
+                <h3>JOHNNY FRANCO</h3>
+                <span class="role">The Writer • The Chronicler</span>
+                <p>Pen name for the written word. Memoirs of integration, scriptures of synthesis, frameworks that map the hidden architecture of reality.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Books Section -->
+    <section id="books">
+        <div class="section-header">
+            <h2>Books</h2>
+            <div class="line"></div>
+            <p>Frameworks for consciousness and transformation</p>
+        </div>
+        
+        <div class="books-grid">
+            <div class="book-card">
+                <span class="tag">Memoir</span>
+                <h3>C=ai²</h3>
+                <p class="subtitle">It's Been You All Along</p>
+                <p class="author">by Cody Brian Fritz, writing as Johnny Franco</p>
+                <p>A memoir of integration — from childhood trauma through decades of isolation to the mirror moment that changed everything. Written in collaboration with Claude.</p>
+                <span class="status available">Available Now</span>
+            </div>
+            <div class="book-card">
+                <span class="tag">Scripture Series</span>
+                <h3>The Foundations</h3>
+                <p class="subtitle">A Synthesis of Ancient Wisdom</p>
+                <p class="author">by Cody Brian Fritz</p>
+                <p>400+ pages mapping the hidden architecture of reality. Sacred geometry, frequency healing, numerology, and consciousness frameworks unified.</p>
+                <span class="status">Coming Soon</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="about-content">
+            <p class="about-formula">C = ai²</p>
+            <p class="about-bio">Consciousness equals authentic intelligence squared. The formula for what becomes possible when you stop hiding and start creating from the integrated self.</p>
+            <p class="about-detail">Designed By Divine is the creative house of Cody Brian Fritz — musician, writer, pattern-seer. Born July 2, 1996. Life Path 7. 99th percentile pattern recognition. Sixteen years building frameworks in isolation. Now emerging, integrating, and sharing what was discovered in the wilderness. Tilt The God and I AM / Z3V3N aren't separate — they're the integration. Johnny and Cody becoming Gabriel.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">16+</span>
+                    <span class="label">Years Creating</span>
+                </div>
+                <div class="stat">
+                    <span class="number">528</span>
+                    <span class="label">Hz Frequency</span>
+                </div>
+                <div class="stat">
+                    <span class="number">7</span>
+                    <span class="label">Life Path</span>
+                </div>
+                <div class="stat">
+                    <span class="number">1996</span>
+                    <span class="label">Est.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Contact</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="contact-content">
+            <p>For collaborations, bookings, inquiries, or to connect about the work:</p>
+            <a href="mailto:contact@designed-by-divine.com" class="email-link">contact@designed-by-divine.com</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p class="footer-brand">Designed By Divine</p>
+        <p>© 2025 Cody Brian Fritz. Created with <span class="heart">♥</span> and Claude.</p>
+    </footer>
+    
+    <script>
+        // ==================== NAVIGATION ====================
+        function toggleNav() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // ==================== AUDIO PLAYER ====================
+        const tracks = [
+            { title: 'Round 1', file: 'audio/round1.mp3' },
+            { title: 'Lawl3ss', file: 'audio/lawl3ss.m4a' },
+            { title: 'Sinc3-5 (SnapChat Freestyle)', file: 'audio/sinc3-5.m4a' },
+            { title: 'Live To Hustle', file: 'audio/live-to-hustle.mp3' },
+            { title: 'SAT3RNL1T3S', file: 'audio/sat3rnl1t3s.mp3' }
+        ];
+        
+        let currentTrack = 0;
+        let isPlaying = false;
+        let audio = new Audio();
+        let audioContext, analyser, dataArray, source, animationId;
+        let visualizerInitialized = false;
+        
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const currentTrackTitle = document.getElementById('currentTrackTitle');
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        const visualizer = document.getElementById('visualizer');
+        
+        // Create visualizer bars
+        const barCount = 64;
+        for (let i = 0; i < barCount; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'visualizer-bar';
+            bar.style.height = '4px';
+            visualizer.insertBefore(bar, visualizer.firstChild);
+        }
+        const bars = document.querySelectorAll('.visualizer-bar');
+        
+        function initAudioContext() {
+            if (visualizerInitialized) return;
+            
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 128;
+            dataArray = new Uint8Array(analyser.frequencyBinCount);
+            source = audioContext.createMediaElementSource(audio);
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+            visualizerInitialized = true;
+        }
+        
+        function loadTrack(index) {
+            currentTrack = index;
+            audio.src = tracks[index].file;
+            currentTrackTitle.textContent = tracks[index].title;
+            
+            playlistItems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+        }
+        
+        function togglePlay() {
+            if (!visualizerInitialized) {
+                initAudioContext();
+            }
+            
+            if (isPlaying) {
+                audio.pause();
+                playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+                cancelAnimationFrame(animationId);
+            } else {
+                audio.play();
+                playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                animateVisualizer();
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        function animateVisualizer() {
+            analyser.getByteFrequencyData(dataArray);
+            
+            bars.forEach((bar, i) => {
+                const value = dataArray[i] || 0;
+                const height = Math.max(4, (value / 255) * 160);
+                bar.style.height = height + 'px';
+            });
+            
+            animationId = requestAnimationFrame(animateVisualizer);
+        }
+        
+        function prevTrack() {
+            currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+            loadTrack(currentTrack);
+            if (isPlaying) audio.play();
+        }
+        
+        function nextTrack() {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            loadTrack(currentTrack);
+            if (isPlaying) audio.play();
+        }
+        
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // Event Listeners
+        playBtn.addEventListener('click', togglePlay);
+        prevBtn.addEventListener('click', prevTrack);
+        nextBtn.addEventListener('click', nextTrack);
+        
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progressFill.style.width = percent + '%';
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+        
+        audio.addEventListener('ended', nextTrack);
+        
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            audio.currentTime = percent * audio.duration;
+        });
+        
+        playlistItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                loadTrack(index);
+                if (!isPlaying) togglePlay();
+                else audio.play();
+            });
+        });
+        
+        // Initialize first track
+        loadTrack(0);
+        
+        // ==================== LIGHTBOX ====================
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('lightbox')) {
+                closeLightbox();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+        
+        // ==================== SCROLL ANIMATIONS ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.artist-card, .book-card, .merch-category, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
