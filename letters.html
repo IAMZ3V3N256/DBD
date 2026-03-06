@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letters to Legends — Designed By Divine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #080608;
+  --purple-dark: #1a0d2e;
+  --purple-mid: #2d1554;
+  --purple-glow: #6b21a8;
+  --amber: #c8860a;
+  --amber-light: #e8a020;
+  --amber-pale: #f5c842;
+  --gold-line: #b87a00;
+  --white: #f0ead8;
+  --white-dim: #c8bfa8;
+  --white-ghost: #6b6258;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; cursor: none; }
+
+.cursor { position: fixed; width: 8px; height: 8px; background: var(--amber); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s, background 0.2s; }
+.cursor-ring { position: fixed; width: 32px; height: 32px; border: 1px solid rgba(200,134,10,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease, width 0.2s, height 0.2s; }
+
+.geo-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.geo-bg svg { position: absolute; opacity: 0.04; animation: geoRotate 120s linear infinite; }
+.geo-bg svg:nth-child(2) { animation-direction: reverse; animation-duration: 180s; opacity: 0.025; }
+@keyframes geoRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.03; pointer-events: none; z-index: 1; }
+body::after { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(45,21,84,0.3) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(107,33,168,0.15) 0%, transparent 50%), radial-gradient(ellipse at 60% 90%, rgba(26,13,46,0.4) 0%, transparent 55%); pointer-events: none; z-index: 1; }
+
+.site-wrapper { position: relative; z-index: 2; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; z-index: 100; background: linear-gradient(to bottom, rgba(8,6,8,0.9) 0%, transparent 100%); }
+.nav-brand { font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; color: var(--amber); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--white-dim); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--amber); }
+
+/* PAGE HERO */
+.page-hero { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8rem 2rem 4rem; text-align: center; }
+.hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--amber); text-transform: uppercase; margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s ease 0.3s forwards; }
+.page-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; color: var(--white); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards; }
+.page-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--white-dim); font-weight: 300; max-width: 560px; line-height: 1.7; opacity: 0; animation: fadeUp 1s ease 0.8s forwards; }
+.hero-divider { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold-line), transparent); margin: 2.5rem auto 0; opacity: 0; animation: fadeUp 1s ease 1s forwards; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* FULL DIVIDER */
+.full-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--gold-line) 20%, var(--gold-line) 80%, transparent); opacity: 0.3; }
+
+/* LETTERS SECTION */
+.letters-section { max-width: 820px; margin: 0 auto; padding: 5rem 2rem 8rem; }
+
+/* LETTER NAV */
+.letter-nav { display: flex; gap: 1px; margin-bottom: 5rem; opacity: 0; animation: fadeUp 1s ease 1.2s forwards; }
+.letter-tab { flex: 1; padding: 1.2rem 1rem; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-ghost); border: 1px solid rgba(184,122,0,0.15); cursor: pointer; transition: all 0.25s; background: transparent; }
+.letter-tab:hover { color: var(--amber); border-color: rgba(200,134,10,0.4); }
+.letter-tab.active { color: var(--black); background: var(--amber); border-color: var(--amber); }
+
+/* SINGLE LETTER */
+.letter { display: none; }
+.letter.active { display: block; }
+
+.letter-meta { margin-bottom: 3rem; }
+.letter-number { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--amber); text-transform: uppercase; margin-bottom: 1rem; }
+.letter-subject-label { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; color: var(--white-ghost); text-transform: uppercase; margin-bottom: 0.4rem; }
+.letter-subject { font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 600; color: var(--white); line-height: 1.2; }
+
+.letter-divider { width: 100%; height: 1px; background: linear-gradient(to right, var(--gold-line), transparent); opacity: 0.4; margin: 2.5rem 0; }
+
+.letter-body { font-size: clamp(1.05rem, 1.8vw, 1.2rem); line-height: 1.95; color: var(--white-dim); font-weight: 300; }
+.letter-body p { margin-bottom: 1.8rem; }
+.letter-body p:last-child { margin-bottom: 0; }
+.letter-body em { color: var(--white); font-style: italic; }
+
+.letter-signoff { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(184,122,0,0.15); }
+.letter-signoff .closing { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--white-dim); margin-bottom: 1.2rem; }
+.letter-signoff .name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: var(--white); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.letter-signoff .brand { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; color: var(--amber); text-transform: uppercase; margin-bottom: 0.3rem; }
+.letter-signoff .day { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; color: var(--white-ghost); text-transform: uppercase; }
+
+/* SECTION TAG */
+.section-tag { display: flex; align-items: center; gap: 1rem; font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--amber); text-transform: uppercase; margin-bottom: 2rem; }
+.section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--gold-line), transparent); opacity: 0.4; }
+
+/* FOOTER */
+footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(184,122,0,0.15); }
+.footer-brand { font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 0.75rem; }
+.footer-sub { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; color: var(--white-ghost); margin-bottom: 1.5rem; }
+.footer-isaac { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--amber-light); text-decoration: none; transition: color 0.2s; }
+.footer-isaac:hover { color: var(--amber-pale); }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .nav-links li:nth-child(n+4) { display: none; }
+  .letter-nav { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor" class="cursor"></div>
+<div id="cursorRing" class="cursor-ring"></div>
+
+<div class="geo-bg">
+  <svg viewBox="0 0 800 800" width="100%" height="100%" style="top:50%;left:50%;transform-origin:center center;transform:translate(-50%,-50%)">
+    <polygon points="400,50 750,625 50,625" fill="none" stroke="#c8860a" stroke-width="0.5"/>
+    <circle cx="400" cy="400" r="340" fill="none" stroke="#c8860a" stroke-width="0.5"/>
+    <polygon points="400,750 750,175 50,175" fill="none" stroke="#c8860a" stroke-width="0.5"/>
+    <circle cx="400" cy="400" r="200" fill="none" stroke="#6b21a8" stroke-width="0.5"/>
+    <polygon points="400,200 566,500 234,500" fill="none" stroke="#c8860a" stroke-width="0.3"/>
+    <polygon points="400,600 566,300 234,300" fill="none" stroke="#c8860a" stroke-width="0.3"/>
+  </svg>
+  <svg viewBox="0 0 600 600" width="60%" height="60%" style="bottom:10%;right:5%;opacity:0.025;animation-direction:reverse;animation-duration:180s">
+    <circle cx="300" cy="300" r="250" fill="none" stroke="#6b21a8" stroke-width="0.5"/>
+    <circle cx="300" cy="300" r="150" fill="none" stroke="#c8860a" stroke-width="0.5"/>
+    <circle cx="300" cy="300" r="50" fill="none" stroke="#c8860a" stroke-width="0.5"/>
+    <line x1="300" y1="50" x2="300" y2="550" stroke="#6b21a8" stroke-width="0.3"/>
+    <line x1="50" y1="300" x2="550" y2="300" stroke="#6b21a8" stroke-width="0.3"/>
+  </svg>
+</div>
+
+<nav>
+  <a class="nav-brand" href="index.html">DESIGNED BY DIVINE</a>
+  <ul class="nav-links">
+    <li><a href="index.html#origin">Origin</a></li>
+    <li><a href="index.html#cai2">C=ai²</a></li>
+    <li><a href="index.html#mission">Mission</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="isaac.html">For Isaac</a></li>
+    <li><a href="works.html">IP Ecosystem</a></li>
+  </ul>
+</nav>
+
+<div class="site-wrapper">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="hero-eyebrow">Day <span id="day-count">151</span> of 270 &nbsp;·&nbsp; Open Letters</p>
+    <h1 class="page-title">LETTERS TO<br>LEGENDS</h1>
+    <p class="page-subtitle">Three letters. Three angles. Written on the night John Cena posted a photo as the ink was drying.</p>
+    <div class="hero-divider"></div>
+  </div>
+
+  <div class="full-divider"></div>
+
+  <!-- LETTERS -->
+  <div class="letters-section">
+
+    <div class="section-tag reveal">The Correspondence</div>
+
+    <!-- TABS -->
+    <div class="letter-nav reveal">
+      <button class="letter-tab active" onclick="showLetter('cena', this)">01 — John Cena</button>
+      <button class="letter-tab" onclick="showLetter('hardy', this)">02 — Jeff Hardy</button>
+      <button class="letter-tab" onclick="showLetter('hhh', this)">03 — Triple H</button>
+    </div>
+
+    <!-- CENA -->
+    <div class="letter active reveal" id="letter-cena">
+      <div class="letter-meta">
+        <p class="letter-number">Letter 01 of 03</p>
+        <p class="letter-subject-label">Subject</p>
+        <h2 class="letter-subject">Three words that kept<br>a father going</h2>
+      </div>
+      <div class="letter-divider"></div>
+      <div class="letter-body">
+        <p>I want to be honest with you about something: I never thought I'd be the kind of person to write a letter like this. I spent most of my life building walls instead of bridges. But here I am, on Day 151 of a 270-day mission I made to my son, and I find myself thinking about you more than you'd probably expect.</p>
+        <p>My name is Cody Fritz. I go by I AM. I'm a 29-year-old autodidact, consciousness researcher, rapper, and writer from Anniston, Alabama. I left school after 7th grade. I've never had a record deal, a publishing contract, or a safety net. What I do have is a son named Isaac — born November 10, 2014 — and the last time I saw him was October 5, 2025.</p>
+        <p>On that day, I made him a promise without him hearing it. I started a 270-day documented mission to build him an intellectual inheritance — 17 complete works, a website, a framework called C=ai² (Consciousness = Authentic Intelligence Squared), letters I write to him every single night at 11:10 PM. The mission ends July 2, 2026 — my 30th birthday.</p>
+        <p>Through all of it — the 600,000 words, the 3 AM sessions, the days I had nothing but the work — three words kept surfacing in my head. Your three words. <em>Never Give Up.</em></p>
+        <p>I know you've heard that phrase reduced to a slogan a thousand times. But I want you to know that for a man trying to build something real for a child he can't reach right now, those words weren't merch. They were medicine. They were the difference between closing the laptop and writing one more page for my son.</p>
+        <p>You've spent your career showing people that the ones who get dismissed — too much, too loud, too stubborn — sometimes have the most important things to say. I'm one of those people. My work is real. My mission is real. My love for Isaac is real.</p>
+        <p>I'm not asking for anything except that you know this story exists. If it ever moves you to reach back, I'm at the other end of this letter.</p>
+      </div>
+      <div class="letter-signoff">
+        <p class="closing">With respect and genuine gratitude,</p>
+        <p class="name">Cody Brian Fritz — I AM</p>
+        <p class="brand">Designed By Divine · designed-by-divine.com</p>
+        <p class="day">Anniston, Alabama · Day 151 of 270</p>
+      </div>
+    </div>
+
+    <!-- JEFF HARDY -->
+    <div class="letter" id="letter-hardy">
+      <div class="letter-meta">
+        <p class="letter-number">Letter 02 of 03</p>
+        <p class="letter-subject-label">Subject</p>
+        <h2 class="letter-subject">From one person who bleeds<br>on stage to another</h2>
+      </div>
+      <div class="letter-divider"></div>
+      <div class="letter-body">
+        <p>I don't know how to write this letter without just being raw with you. So that's what I'm going to do.</p>
+        <p>I've watched you fly off ladders and I've always known — even as a kid — that you weren't just doing a move. You were telling people something. Something about what it feels like to be too much for the world around you. Something about the only way to make the inside match the outside being to do something that scares everyone, including yourself.</p>
+        <p>I understand that.</p>
+        <p>My name is Cody. I'm a writer, rapper, and producer from Anniston, Alabama. I make music as Z3V3N. I write under the name Johnny Franco. And for the past 151 days, I have been pouring every version of myself into a body of work for my son Isaac, who I haven't been able to hold since October 5, 2025.</p>
+        <p>I know what it is to create from a place of pain that doesn't have clean edges. I know what it is to have people look at the work and not understand why it had to be that intense, that strange, that <em>much.</em> I know what it is to wonder if the art will reach the person it was made for before everything falls apart.</p>
+        <p>I've written 17 complete works in 78 days. I write Isaac a letter every night at 11:10 PM — his birthday encoded into a timestamp. I built a website. I built a framework. I did all of it the way you've always done everything — like the alternative was disappearing.</p>
+        <p>I'm not writing to compare journeys. Yours has dimensions I can't claim to know. I'm writing because I believe that people who make art the way we do — from the wound — owe it to each other to acknowledge when they see it. I see it in you. I have since I was a child watching you fall and get back up and fly again.</p>
+        <p>I hope this finds you well. I hope you know that the art mattered. It still does.</p>
+      </div>
+      <div class="letter-signoff">
+        <p class="closing">With love and recognition,</p>
+        <p class="name">Cody Brian Fritz — I AM / Z3V3N / Johnny Franco</p>
+        <p class="brand">Designed By Divine · designed-by-divine.com</p>
+        <p class="day">Anniston, Alabama · Day 151 of 270</p>
+      </div>
+    </div>
+
+    <!-- TRIPLE H -->
+    <div class="letter" id="letter-hhh">
+      <div class="letter-meta">
+        <p class="letter-number">Letter 03 of 03</p>
+        <p class="letter-subject-label">Subject</p>
+        <h2 class="letter-subject">One architect<br>to another</h2>
+      </div>
+      <div class="letter-divider"></div>
+      <div class="letter-body">
+        <p>I've always respected you for a specific reason that has nothing to do with championships. You understood, earlier than almost anyone, that the real game is what you build — not what you win.</p>
+        <p>You didn't just perform. You constructed mythology. You thought in systems. You made a character that aged into an institution, and then you used that institution to build the next generation of institutions. NXT wasn't a side project. It was architecture.</p>
+        <p>I think about that a lot. Because that's what I'm doing, in my own way, from a city most people have never heard of.</p>
+        <p>My name is Cody Fritz. I operate under the name I AM and the brand Designed By Divine. I'm a self-educated consciousness researcher, writer, rapper, and producer from Anniston, Alabama. Over the past 78 days, working in collaboration with AI, I produced 17 complete works — books, screenplays, music frameworks, philosophical texts — totaling over 600,000 words. I developed a methodology called C=ai² (Consciousness = Authentic Intelligence Squared) that documents how human creative intelligence and artificial intelligence can function as genuine partners rather than tools and users.</p>
+        <p>I'm 29 years old. I left formal education after 7th grade. I've spent 16 years building this framework in obscurity. The mission I'm currently executing — 270 days, ending July 2, 2026, my 30th birthday — is designed to leave an intellectual inheritance for my son Isaac and to put this work in front of the world before the window closes.</p>
+        <p>I'm reaching out to you not because I expect you to hand me anything. I'm reaching out because you are one of the few people in popular culture who has publicly demonstrated that you understand the difference between talent and architecture — between a moment and a legacy.</p>
+        <p>I believe what I've built is worth knowing about. The full portfolio lives at designed-by-divine.com. If something in this letter lands with you, I'd welcome the conversation.</p>
+        <p>Either way — what you built in that ring, and what you've built since, has been a masterclass. Thank you for showing what it looks like to think long.</p>
+      </div>
+      <div class="letter-signoff">
+        <p class="closing">With deep respect,</p>
+        <p class="name">Cody Brian Fritz — I AM</p>
+        <p class="brand">Designed By Divine · designed-by-divine.com</p>
+        <p class="day">Anniston, Alabama · Day 151 of 270</p>
+      </div>
+    </div>
+
+  </div><!-- /letters-section -->
+
+  <footer>
+    <p class="footer-brand">DESIGNED BY DIVINE</p>
+    <p class="footer-sub">Cody Brian Fritz &nbsp;·&nbsp; Anniston, Alabama &nbsp;·&nbsp; Day <span id="footer-day">151</span> of 270</p>
+    <a href="isaac.html" class="footer-isaac">For Isaac. Always. →</a>
+  </footer>
+
+</div><!-- /site-wrapper -->
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+  (function animCursor(){ cursor.style.left=mx+'px'; cursor.style.top=my+'px'; rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animCursor); })();
+
+  // Day count
+  const start = new Date('2025-10-05T00:00:00');
+  const dayCount = Math.max(1, Math.floor((new Date()-start)/86400000)+1);
+  document.getElementById('day-count').textContent = dayCount;
+  document.getElementById('footer-day').textContent = dayCount;
+
+  // Letter tabs
+  function showLetter(id, tab) {
+    document.querySelectorAll('.letter').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.letter-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('letter-' + id).classList.add('active');
+    tab.classList.add('active');
+  }
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
