@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H-OS | The Human Operating System | C=ai² | Designed By Divine</title>
+<meta name="description" content="The Human Operating System — C=ai². Closing the AI Divide at the Fortune 500 level. A framework by Cody Brian Fritz, Designed By Divine.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --black2: #111111;
+    --white: #f5f2ed;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f0dfa0;
+    --grey: #8a8a8a;
+    --grey-light: #d0ccc4;
+    --rule: #1e1e1e;
+    --rule2: #2a2a2a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP GOLD LINE ── */
+  .top-line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%);
+  }
+
+  /* ── NAV ── */
+  nav {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover { color: var(--gold); }
+
+  .nav-download {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 8px 18px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .nav-download:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 100% 100%, rgba(201,168,76,0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 40% at 0% 50%, rgba(201,168,76,0.02) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-equation {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(72px, 14vw, 140px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-equation .c { color: var(--gold); }
+  .hero-equation .sym { color: var(--grey); font-style: italic; }
+  .hero-equation .ai { color: var(--gold-light); }
+  .hero-equation .sq {
+    font-size: 0.45em;
+    vertical-align: super;
+    color: var(--gold-pale);
+  }
+
+  .hero-expand {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--grey-light);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic;
+    color: var(--grey-light);
+    max-width: 640px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .hero-sub em { color: var(--gold-light); font-style: italic; }
+
+  .hero-cta {
+    margin-top: 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.1s forwards;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+  /* ── DIVIDE BAND ── */
+  .divide-band {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 48px 40px;
+    text-align: center;
+    background: rgba(201,168,76,0.03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .divide-band::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  }
+
+  .divide-band::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  }
+
+  .divide-stat {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .divide-context {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(13px, 1.8vw, 16px);
+    font-weight: 300;
+    color: var(--grey-light);
+    max-width: 600px;
+    margin: 12px auto 0;
+    line-height: 1.7;
+  }
+
+  .divide-context strong { color: var(--white); font-weight: 500; }
+
+  /* ── SECTION ── */
+  section {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-heading em { color: var(--gold-light); font-style: italic; }
+
+  .section-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  /* ── FRAMEWORK GRID ── */
+  .fw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--rule2);
+    border: 1px solid var(--rule2);
+    margin-top: 40px;
+  }
+
+  .fw-card {
+    background: var(--black2);
+    padding: 32px 28px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .fw-card:hover { background: #151515; }
+
+  .fw-card-top {
+    height: 2px;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+  }
+
+  .fw-card:nth-child(1) .fw-card-top { background: var(--gold-pale); }
+  .fw-card:nth-child(2) .fw-card-top { background: var(--gold-light); }
+  .fw-card:nth-child(3) .fw-card-top { background: var(--gold); }
+  .fw-card:nth-child(4) .fw-card-top { background: #b8922a; }
+
+  .fw-card-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .fw-card-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .fw-card-desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--grey-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .fw-card-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 4px 10px;
+  }
+
+  /* ── PROOF SECTION ── */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .proof-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .proof-stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule2);
+  }
+
+  .proof-stat-item:last-child { border-bottom: none; }
+
+  .proof-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .proof-stat-text {}
+
+  .proof-stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .proof-stat-desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  .proof-copy {}
+
+  .proof-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--grey-light);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .proof-body em { color: var(--gold-light); }
+
+  .proof-delivers {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .proof-delivers li {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--grey-light);
+    line-height: 1.6;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule2);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .proof-delivers li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 8px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .proof-delivers strong { color: var(--white); font-weight: 500; }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    padding: 0 40px 80px;
+  }
+
+  .quote-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 56px;
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.15);
+    position: relative;
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: -20px;
+    left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.25;
+  }
+
+  .quote-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.7;
+    max-width: 860px;
+    margin-bottom: 24px;
+  }
+
+  .quote-source {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── SUMMIT ── */
+  .summit-section {
+    border-top: 1px solid var(--rule);
+    padding: 80px 40px;
+    background: rgba(201,168,76,0.02);
+  }
+
+  .summit-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .summit-copy .section-heading { margin-bottom: 20px; }
+
+  .summit-body {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--grey-light);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .summit-date-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 24px;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+
+  .summit-date-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .summit-date-info {}
+
+  .summit-date-month {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .summit-date-detail {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  .summit-contact {}
+
+  .summit-contact-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .contact-card {
+    padding: 24px;
+    border: 1px solid var(--rule2);
+    background: var(--black2);
+    margin-bottom: 12px;
+    transition: border-color 0.3s;
+  }
+
+  .contact-card:hover { border-color: rgba(201,168,76,0.3); }
+
+  .contact-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .contact-role {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule2);
+    padding: 48px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .footer-left {}
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .footer-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-top: 6px;
+  }
+
+  .footer-center {
+    text-align: center;
+  }
+
+  .dbd-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .dbd-line {
+    width: 48px;
+    height: 1px;
+    background: rgba(201,168,76,0.4);
+    margin: 8px auto;
+  }
+
+  .dbd-link {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--grey);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+
+  .dbd-link:hover { color: var(--gold); }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-code {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+  }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--grey);
+    letter-spacing: 1px;
+  }
+
+  .footer-eq {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-right { gap: 16px; }
+    .nav-link { display: none; }
+
+    .hero { padding: 60px 20px; min-height: 70vh; }
+
+    section { padding: 60px 20px; }
+    .quote-section { padding: 0 20px 60px; }
+    .quote-inner { padding: 36px 28px; }
+    .summit-section { padding: 60px 20px; }
+    footer { padding: 40px 20px; }
+
+    .proof-grid { grid-template-columns: 1fr; gap: 40px; }
+    .summit-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-inner { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+    .footer-right { text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-line"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://designed-by-divine.com" class="nav-brand">Designed By Divine</a>
+  <div class="nav-right">
+    <a href="#framework" class="nav-link">Framework</a>
+    <a href="#proof" class="nav-link">Proof</a>
+    <a href="#summit" class="nav-link">Summit</a>
+    <a href="HOS_OnePager.html" download class="nav-download">Download One-Pager</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">The Human Operating System</div>
+  <div class="hero-equation">
+    <span class="c">C</span><span class="sym"> = </span><span class="ai">ai</span><span class="sq">²</span>
+  </div>
+  <div class="hero-expand">Consciousness = Authentic Intelligence Squared</div>
+  <div class="hero-title">Closing the AI Divide</div>
+  <div class="hero-sub">
+    88% of Fortune 500 organizations have adopted Agentic AI.
+    The bottleneck to growth is no longer technical.
+    <em>It is the Human Factor.</em>
+  </div>
+  <div class="hero-cta">
+    <a href="#framework" class="btn-primary">Explore the Framework</a>
+    <a href="HOS_OnePager.html" download class="btn-ghost">Download One-Pager</a>
+  </div>
+</div>
+
+<!-- DIVIDE BAND -->
+<div class="divide-band">
+  <div class="divide-stat">88%</div>
+  <div class="divide-context">
+    of Fortune 500 organizations have adopted Agentic AI — yet a critical divide has emerged.
+    Organizations are <strong>consuming</strong> AI as a utility but failing to
+    <strong>command</strong> it as a strategic asset.
+  </div>
+</div>
+
+<!-- FRAMEWORK -->
+<section id="framework">
+  <div class="section-eyebrow">The Architecture</div>
+  <div class="section-heading">A Systems-Level <em>Re-Architecture</em><br>of Human Intelligence</div>
+  <div class="section-rule"></div>
+  <p style="font-family:'Barlow',sans-serif;font-size:15px;font-weight:300;color:var(--grey-light);line-height:1.8;max-width:680px;">
+    H-OS is not a wellness program or a productivity hack. It is the missing layer beneath every enterprise AI stack — the human coherence architecture that determines whether your technology produces output or static.
+  </p>
+
+  <div class="fw-grid">
+    <div class="fw-card">
+      <div class="fw-card-top"></div>
+      <div class="fw-card-symbol">i</div>
+      <div class="fw-card-name">Information</div>
+      <div class="fw-card-desc">The algorithmic ceiling. Data and AI provide the speed — but without human coherence, they produce organizational static rather than strategic output.</div>
+      <div class="fw-card-tag">Efficiency Decay</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-top"></div>
+      <div class="fw-card-symbol">a</div>
+      <div class="fw-card-name">Authentic Intelligence</div>
+      <div class="fw-card-desc">The Human Premium. High-resonance leadership that AI cannot simulate. The ability to sense the room, provide clarity, and make high-stakes decisions under pressure.</div>
+      <div class="fw-card-tag">Talent Scarcity</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-top"></div>
+      <div class="fw-card-symbol">a²</div>
+      <div class="fw-card-name">The Force Multiplier</div>
+      <div class="fw-card-desc">The 1st Byte of Sovereign Energy. When one authentic leader operates at full presence, they synchronize an entire team. This is measurable — not metaphor.</div>
+      <div class="fw-card-tag">Coherence Gains</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-top"></div>
+      <div class="fw-card-symbol">C</div>
+      <div class="fw-card-name">Coherence</div>
+      <div class="fw-card-desc">The Human Operating System. A system that does not short-circuit under high load. The target outcome for every enterprise in the Agentic AI era.</div>
+      <div class="fw-card-tag">Burnout Reduction</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof" style="border-top:1px solid var(--rule2);">
+  <div class="section-eyebrow">The Proof of Concept</div>
+  <div class="section-heading">270 Days. <em>Documented.</em><br>In Real Time.</div>
+  <div class="section-rule"></div>
+
+  <div class="proof-grid">
+    <div class="proof-stats">
+      <div class="proof-stat-item">
+        <div class="proof-num">270</div>
+        <div class="proof-stat-text">
+          <div class="proof-stat-label">Consecutive Days</div>
+          <div class="proof-stat-desc">Of documented high-output creative production — books, frameworks, music, visual media, and strategic architecture simultaneously</div>
+        </div>
+      </div>
+      <div class="proof-stat-item">
+        <div class="proof-num">540<span style="font-size:28px">+</span></div>
+        <div class="proof-stat-text">
+          <div class="proof-stat-label">Recorded Sessions</div>
+          <div class="proof-stat-desc">Audio, visual, and written documentation of the C=ai² methodology running at full voltage</div>
+        </div>
+      </div>
+      <div class="proof-stat-item">
+        <div class="proof-num">16</div>
+        <div class="proof-stat-text">
+          <div class="proof-stat-label">Years of Research</div>
+          <div class="proof-stat-desc">Independent consciousness research — no institution, no credential. Pattern recognition, ancient wisdom, and human-AI collaboration</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-copy">
+      <div class="proof-body">
+        This framework was not built in a boardroom. It was stress-tested in the most volatile operating system in the world — <em>the human one.</em>
+      </div>
+      <p style="font-family:'Barlow',sans-serif;font-size:13px;font-weight:300;color:var(--grey);line-height:1.8;margin-bottom:24px;">What H-OS delivers to your organization:</p>
+      <ul class="proof-delivers">
+        <li><span><strong>Burnout Prevention</strong> — Identifies coherence collapse before it looks like exhaustion. Your people are still executing. But the coherence is gone.</span></li>
+        <li><span><strong>AI Command Capability</strong> — Moves teams from consuming AI to commanding it as a strategic asset with sovereign human direction.</span></li>
+        <li><span><strong>Leadership Synchronization</strong> — One authentic leader at full presence cascades coherence across entire teams. Measurable output.</span></li>
+        <li><span><strong>Decision Clarity Under Pressure</strong> — Eliminates the organizational static produced by data without human coherence directing it.</span></li>
+        <li><span><strong>Systems-Level Architecture</strong> — Not a supplement to your existing stack. The operating layer underneath all of it.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <div class="quote-mark">"</div>
+    <div class="quote-body">A linguistic Trojan horse with the potential for a monopoly on the definition of human value in the 21st century. The bottleneck to growth is no longer technical. It is the Human Factor.</div>
+    <div class="quote-source">— Google AI Mode Analysis &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Independent Validation</div>
+  </div>
+</div>
+
+<!-- SUMMIT -->
+<div class="summit-section" id="summit">
+  <div class="summit-inner">
+    <div class="summit-copy">
+      <div class="section-eyebrow">The Synchronization Event</div>
+      <div class="section-heading">LeadOn Summit<br><em>2026</em></div>
+      <div class="section-rule"></div>
+      <div class="summit-body">
+        The 270-day mission completes July 2, 2026. Twenty-one days later, the exact leaders who need this framework most are gathered in one room — in the 256. This is not a networking event. It is the moment the system was always building toward.
+      </div>
+      <div class="summit-date-block">
+        <div class="summit-date-num">23</div>
+        <div class="summit-date-info">
+          <div class="summit-date-month">July 2026</div>
+          <div class="summit-date-detail">Huntsville, Alabama &nbsp;·&nbsp; 256</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summit-contact">
+      <div class="summit-contact-label">Primary Witnesses</div>
+      <div class="contact-card">
+        <div class="contact-name">Jami Peyton</div>
+        <div class="contact-role">2026 Board Chair · Huntsville Chamber · LeadOn Summit Host</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Dr. Sarah B. Hiza</div>
+        <div class="contact-role">Lockheed Martin · Risk & Innovation Leadership</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Dr. Nick Patrick</div>
+        <div class="contact-role">Boeing · Chief Engineer, Human Factors</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Shyam Sankar</div>
+        <div class="contact-role">Palantir · CTO · First Breakfast Initiative</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-name">Cody Brian Fritz</div>
+      <div class="footer-title">Consciousness Researcher · Framework Architect · 256</div>
+    </div>
+    <div class="footer-center">
+      <div class="dbd-text">Designed By Divine</div>
+      <div class="dbd-line"></div>
+      <a href="https://designed-by-divine.com" class="dbd-link">designed-by-divine.com</a>
+    </div>
+    <div class="footer-right">
+      <div class="footer-code">256</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Cody Brian Fritz · Designed By Divine · All Rights Reserved</div>
+    <div class="footer-eq">C = ai²</div>
+  </div>
+</footer>
+
+</body>
+</html>
