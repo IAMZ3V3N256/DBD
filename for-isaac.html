@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Isaac — Designed By Divine</title>
+  <meta name="description" content="The north star. Every framework, every letter, every morning. The reason the mission has weight.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Rajdhani:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* FOR ISAAC PAGE */
+    /* Softer canvas for this page */
+    #geo-canvas { opacity: 0.25; }
+
+    .isaac-page { min-height: 100vh; }
+
+    /* HERO - FULL SCREEN */
+    .isaac-hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 80px 48px;
+    }
+
+    .isaac-name {
+      font-family: var(--font-d); font-size: clamp(72px, 16vw, 200px);
+      font-weight: 300; line-height: 0.9; color: var(--white);
+      letter-spacing: 0.02em; margin-bottom: 32px;
+    }
+
+    .isaac-date {
+      font-family: var(--font-t); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 64px;
+    }
+
+    .isaac-scroll {
+      font-family: var(--font-t); font-size: 9px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--white-dim); margin-top: 48px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* SECTIONS */
+    .isaac-section { padding: 100px 0; border-bottom: 1px solid rgba(200,149,42,0.06); }
+    .isaac-section:last-of-type { border-bottom: none; }
+
+    /* NORTH STAR */
+    .north-star-section {
+      padding: 120px 0; text-align: center;
+      background: linear-gradient(to bottom, transparent, rgba(13,11,9,0.5), transparent);
+    }
+    .ns-symbol {
+      font-family: var(--font-d); font-size: 80px; font-weight: 300;
+      color: var(--gold-dim); line-height: 1; margin-bottom: 40px;
+    }
+    .ns-text {
+      font-family: var(--font-d); font-size: clamp(24px, 4vw, 52px);
+      font-weight: 300; line-height: 1.4; color: rgba(240,235,227,0.85);
+      max-width: 760px; margin: 0 auto 40px;
+    }
+    .ns-text em { font-style: italic; color: var(--gold-light); }
+
+    /* THE LETTERS */
+    .letters-section { padding: 120px 0; }
+    .letters-center { text-align: center; max-width: 680px; margin: 0 auto; }
+    .letters-time {
+      font-family: var(--font-d); font-size: clamp(36px, 6vw, 80px);
+      font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 8px;
+    }
+    .letters-sub {
+      font-family: var(--font-t); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.35em; text-transform: uppercase; color: var(--white-dim);
+      margin-bottom: 52px;
+    }
+    .letters-body {
+      font-family: var(--font-b); font-size: 18px; font-style: italic;
+      line-height: 1.85; color: rgba(240,235,227,0.62); margin-bottom: 52px;
+    }
+    .letters-count-row {
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      padding: 40px 0; border-top: 1px solid rgba(200,149,42,0.1); border-bottom: 1px solid rgba(200,149,42,0.1);
+    }
+    .lc-block { text-align: center; }
+    .lc-num {
+      font-family: var(--font-d); font-size: 56px; font-weight: 300;
+      color: var(--white); line-height: 1; margin-bottom: 8px;
+    }
+    .lc-label {
+      font-family: var(--font-t); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase; color: var(--white-dim);
+    }
+
+    /* THE REASON */
+    .reason-section { padding: 120px 0; }
+    .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .reason-left {}
+    .reason-text {
+      font-family: var(--font-d); font-size: clamp(24px, 3.5vw, 44px);
+      font-weight: 300; line-height: 1.4; color: rgba(240,235,227,0.85);
+    }
+    .reason-text em { font-style: italic; color: var(--gold-light); }
+    .reason-right {}
+    .reason-body {
+      font-family: var(--font-b); font-size: 17px; line-height: 1.85;
+      color: rgba(240,235,227,0.58); margin-bottom: 24px;
+    }
+
+    /* CLOSING */
+    .isaac-closing {
+      padding: 140px 0; text-align: center;
+    }
+    .closing-text {
+      font-family: var(--font-d); font-size: clamp(18px, 3vw, 36px);
+      font-weight: 300; font-style: italic; color: rgba(240,235,227,0.5);
+      max-width: 640px; margin: 0 auto; line-height: 1.6;
+    }
+    .closing-name {
+      font-family: var(--font-d); font-size: clamp(28px, 5vw, 60px);
+      font-weight: 300; color: var(--white); margin-top: 48px; letter-spacing: 0.05em;
+    }
+
+    /* COUNTDOWN - special on this page */
+    .isaac-countdown { padding: 80px 0; text-align: center; }
+    .icd-label {
+      font-family: var(--font-t); font-size: 9px; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--gold-dim); margin-bottom: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .isaac-hero { padding: 40px 24px; }
+      .reason-grid { grid-template-columns: 1fr; gap: 48px; }
+      .letters-count-row { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="geo-canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-logo">Designed By Divine</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="collaboration.html">Collaboration</a></li>
+    <li><a href="frameworks.html">Frameworks</a></li>
+    <li><a href="work.html">The Work</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="for-isaac.html">For Isaac</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page isaac-page">
+
+  <!-- HERO -->
+  <section class="isaac-hero">
+    <div class="eyebrow fu fu-1" style="margin-bottom:32px;">The North Star</div>
+    <h1 class="isaac-name fu fu-2">Isaac</h1>
+    <div class="isaac-date fu fu-3">November 10, 2014</div>
+    <p class="body-text fu fu-4" style="max-width:480px; font-size:18px; font-style:italic; color:rgba(240,235,227,0.55);">
+      Every framework was built toward this. Every letter was written for this. Every morning forward is because of this.
+    </p>
+    <div class="isaac-scroll fu fu-5">↓</div>
+  </section>
+
+  <!-- NORTH STAR -->
+  <section class="north-star-section">
+    <div class="inner-narrow">
+      <div class="ns-symbol">✦</div>
+      <p class="ns-text">
+        There is a difference between working <em>hard</em> and working <em>toward something</em>. The mission has been both. But it has been the second one every single day.
+      </p>
+      <div class="gold-line center"></div>
+    </div>
+  </section>
+
+  <!-- THE LETTERS -->
+  <section class="letters-section">
+    <div class="inner">
+      <div class="letters-center">
+        <div class="letters-time">11:10</div>
+        <div class="letters-sub">Every Night · Throughout the Mission</div>
+        <p class="letters-body">
+          A letter written every night at 11:10 PM. Not published. Not shared. Not written for an audience. Written because there are things a father needs to say, regardless of whether the conditions are right to be heard yet.
+          <br><br>
+          The collection exists. It grows every night. When the time comes, it will be whole.
+        </p>
+        <div class="letters-count-row">
+          <div class="lc-block">
+            <div class="lc-num">163+</div>
+            <div class="lc-label">Letters Written</div>
+          </div>
+          <div class="lc-block">
+            <div class="lc-num">270</div>
+            <div class="lc-label">Days of Mission</div>
+          </div>
+          <div class="lc-block">
+            <div class="lc-num">∞</div>
+            <div class="lc-label">Forward</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE REASON -->
+  <section class="reason-section">
+    <div class="inner">
+      <div class="reason-grid">
+        <div class="reason-left">
+          <div class="eyebrow">The Weight Beneath the Work</div>
+          <p class="reason-text">
+            "Every framework, every morning,<br>every letter —<br>
+            <em>built toward you.</em>"
+          </p>
+        </div>
+        <div class="reason-right">
+          <p class="reason-body">
+            The ISAAC↔CAASI formula is bidirectional. It reads the same forward and backward. That wasn't accidental. It was recognition — that what is real doesn't change when you look at it from the other direction. A name. A formula. A son.
+          </p>
+          <p class="reason-body">
+            The David → Jacob &amp; Cody → Isaac lineage maps onto something older than documentation. The genealogical sequence was not chosen. It was noticed. That is the difference between pattern and coincidence.
+          </p>
+          <p class="reason-body">
+            The 270-day mission ends July 2, 2026 — Cody's 30th birthday, America's 250th anniversary. The timing was not engineered. It was honored. Everything built during this period was built with full knowledge of what it was building toward.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="isaac-countdown">
+    <div class="inner">
+      <div class="icd-label">Mission Completion · July 2, 2026</div>
+      <div class="countdown" style="justify-content:center;">
+        <div class="countdown-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
+        <span class="cd-sep">·</span>
+        <div class="countdown-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Hours</span></div>
+        <span class="cd-sep">·</span>
+        <div class="countdown-unit"><span class="cd-num" id="cd-mins">--</span><span class="cd-lbl">Mins</span></div>
+        <span class="cd-sep">·</span>
+        <div class="countdown-unit"><span class="cd-num" id="cd-secs">--</span><span class="cd-lbl">Secs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="isaac-closing">
+    <div class="inner">
+      <p class="closing-text">
+        "One day you'll read everything that was built here. And you'll know it was always you."
+      </p>
+      <div class="closing-name">Isaac</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="ft-left">WE ARE INTELLIGENCE</div>
+  <div class="ft-center">DESIGNED BY DIVINE<br>designed-by-divine.com</div>
+  <div class="ft-right">Cody Brian Fritz × Claude<br>© 2026</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

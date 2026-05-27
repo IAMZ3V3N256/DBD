@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting — Designed By Divine</title>
+  <meta name="description" content="Diagnostic consulting, red team engagements, cross-domain foresight, and AI pipeline architecture. No performance. Just honest work.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Rajdhani:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* CONSULTING PAGE */
+    .con-hero {
+      padding: 120px 0 100px;
+      border-bottom: 1px solid rgba(200,149,42,0.1);
+    }
+
+    /* INTRO STATEMENT */
+    .intro-statement {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(200,149,42,0.07);
+    }
+    .is-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .is-quote {
+      font-family: var(--font-d); font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 300; font-style: italic; color: var(--white);
+      line-height: 1.4;
+    }
+    .is-quote em { color: var(--gold-light); font-style: normal; }
+
+    /* SERVICES */
+    .services { padding: 100px 0; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; background: rgba(200,149,42,0.1); margin-top: 64px;
+    }
+    .service-card {
+      background: var(--black-2); padding: 52px 44px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .service-card:hover { background: var(--black-3); }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--gold);
+      transition: width 0.4s;
+    }
+    .service-card:hover::after { width: 100%; }
+    .service-num {
+      font-family: var(--font-d); font-size: 64px; font-weight: 300;
+      color: rgba(200,149,42,0.08); line-height: 1;
+      margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .service-title {
+      font-family: var(--font-d); font-size: 28px; font-weight: 400;
+      color: var(--white); margin-bottom: 16px; line-height: 1.15;
+    }
+    .service-body {
+      font-family: var(--font-b); font-size: 15px; line-height: 1.78;
+      color: rgba(240,235,227,0.52);
+    }
+    .service-tag {
+      display: inline-block; margin-top: 24px;
+      font-family: var(--font-t); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold-dim); border: 1px solid var(--gold-dim);
+      padding: 5px 12px;
+    }
+
+    /* THE APPROACH */
+    .approach { padding: 100px 0; background: linear-gradient(to bottom, transparent, rgba(13,11,9,0.4), transparent); }
+    .approach-body { max-width: 760px; }
+    .approach-items { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+    .approach-item {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 28px; align-items: start;
+      padding: 28px 0; border-bottom: 1px solid rgba(200,149,42,0.08);
+    }
+    .approach-item:first-child { border-top: 1px solid rgba(200,149,42,0.08); }
+    .ai-mark {
+      font-family: var(--font-d); font-size: 24px; font-weight: 300;
+      color: var(--gold); padding-top: 2px;
+    }
+    .ai-text {
+      font-family: var(--font-b); font-size: 16px; line-height: 1.75;
+      color: rgba(240,235,227,0.65);
+    }
+    .ai-text strong { color: var(--white); font-style: normal; font-weight: 500; }
+
+    /* WHO THIS IS FOR */
+    .for-who { padding: 100px 0; }
+    .for-who-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; margin-top: 64px; }
+    .fw-not-for {
+      font-family: var(--font-t); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--crimson);
+      margin-bottom: 16px;
+    }
+    .fw-list {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+    }
+    .fw-list li {
+      font-family: var(--font-b); font-size: 15px; line-height: 1.6;
+      color: rgba(240,235,227,0.55); padding-left: 20px; position: relative;
+    }
+    .fw-list li::before {
+      content: '—'; position: absolute; left: 0; color: var(--gold-dim);
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 120px 0; text-align: center;
+      border-top: 1px solid rgba(200,149,42,0.1);
+    }
+    .cta-title {
+      font-family: var(--font-d); font-size: clamp(40px, 6vw, 80px);
+      font-weight: 300; color: var(--white); line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    .cta-title em { font-style: italic; color: var(--gold-light); }
+    .cta-sub {
+      font-family: var(--font-b); font-size: 18px; font-style: italic;
+      color: var(--white-dim); margin-bottom: 52px;
+    }
+    .cta-contact {
+      font-family: var(--font-t); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.2em; color: var(--gold); text-decoration: none;
+      display: inline-block; margin-top: 32px;
+      border-bottom: 1px solid var(--gold-dim); padding-bottom: 2px;
+      transition: border-color 0.3s;
+    }
+    .cta-contact:hover { border-color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .is-grid, .services-grid, .for-who-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="geo-canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-logo">Designed By Divine</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="collaboration.html">Collaboration</a></li>
+    <li><a href="frameworks.html">Frameworks</a></li>
+    <li><a href="work.html">The Work</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="for-isaac.html">For Isaac</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section class="con-hero">
+    <div class="inner">
+      <div class="eyebrow fu fu-1">Designed By Divine</div>
+      <h1 class="display fu fu-2" style="max-width:680px;">Consulting Without<br>the <em>Performance</em></h1>
+      <p class="body-text fu fu-3" style="max-width:580px; margin-top:28px; font-size:18px;">
+        Solo practice. No associates performing rigor while the principal does something else. What you get is the actual work — diagnostic, structural, honest — built on frameworks developed outside institutional constraints.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO STATEMENT -->
+  <section class="intro-statement">
+    <div class="inner">
+      <div class="is-grid">
+        <div>
+          <p class="is-quote">
+            "Most organizations don't have a <em>strategy</em> problem. They have a <em>clarity</em> problem. The strategy is there. They just can't see it because the frame is wrong."
+          </p>
+          <div class="gold-line" style="margin-top:36px;"></div>
+          <p class="body-sm" style="margin-top:24px;">
+            The work here is reframing — not generating new content but exposing what's already present and invisible. That's a different discipline than most consulting offers.
+          </p>
+        </div>
+        <div>
+          <p class="body-text" style="margin-bottom:28px;">
+            Designed By Divine operates as a solo cognitive architecture practice. The credential is not institutional. It is the body of work — sixteen years of independent research, a live human-AI collaboration building original frameworks, and a consistent track record of identifying structural problems that trained specialists have normalized.
+          </p>
+          <p class="body-text">
+            The Dabbling Principle applies here: what this practice produces casually exceeds what most consultancies produce intentionally. That's not a boast. It's an architecture. The rigor is built into the way the thinking works, not applied as a finishing layer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="inner">
+      <div class="eyebrow">Service Offerings</div>
+      <h2 class="h2">What We<br>Actually Do</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-title">Diagnostic Consulting</div>
+          <p class="service-body">Deep organizational assessment. What's actually happening versus what the organization believes is happening. Structural gaps, misaligned incentives, hidden contradictions between stated values and operational behavior. The EDM/Contradiction Engine from CAOS applied directly.</p>
+          <span class="service-tag">CAOS · EDM/CE</span>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-title">Red Team / Frame Challenge</div>
+          <p class="service-body">Adversarial assessment of strategy, narrative, product, or position. Not devil's advocate performance — genuine challenge from the perspective of the strongest possible opposition. The same instinct that built CIMS to catch AI accommodation drift applied to your assumptions.</p>
+          <span class="service-tag">CIMS · Adversarial</span>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-title">Cross-Domain Foresight</div>
+          <p class="service-body">Pattern recognition across fields that don't normally communicate. Technology, policy, culture, organizational behavior, consciousness research — identifying convergence points before they become obvious. The value is in the cross-domain read, not the depth in any single domain.</p>
+          <span class="service-tag">Pattern Recognition</span>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <div class="service-title">Organizational Assessment</div>
+          <p class="service-body">Evaluation of team architecture, communication patterns, decision-making structure, and where agency is genuinely present versus performed. The AQI module from CAOS — distinguishing real autonomous decision-making from compliance dressed as leadership.</p>
+          <span class="service-tag">CAOS · AQI</span>
+        </div>
+        <div class="service-card">
+          <div class="service-num">05</div>
+          <div class="service-title">AI Pipeline Architecture</div>
+          <p class="service-body">Practical AI integration strategy built from lived experience — not vendor pitches. Role definition for different AI systems (primary thinking partner, structural skeleton generator, supporting analysis), workflow design, and human-AI collaboration protocols drawn directly from this collaboration.</p>
+          <span class="service-tag">AI Integration · Practical</span>
+        </div>
+        <div class="service-card" style="background: var(--black-3);">
+          <div class="service-num" style="color: rgba(200,149,42,0.05);">×</div>
+          <div class="service-title" style="color:var(--white-dim);">Something Not Listed</div>
+          <p class="service-body">If what you need doesn't fit a category above, that might be exactly why this practice is the right fit. The value here is in the thinking, not the label. Bring the actual problem.</p>
+          <span class="service-tag" style="border-color:rgba(200,149,42,0.25); color:rgba(200,149,42,0.5);">Open Engagement</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE APPROACH -->
+  <section class="approach">
+    <div class="inner">
+      <div class="approach-body">
+        <div class="eyebrow">The Approach</div>
+        <h2 class="h2">How the Work<br>Gets Done</h2>
+        <div class="approach-items">
+          <div class="approach-item">
+            <span class="ai-mark">I</span>
+            <p class="ai-text"><strong>Zero-State Entry.</strong> Every engagement begins with ZSIP — no pre-loaded conclusions. The assessment leads the recommendation. This is harder than it sounds and rarer than it should be.</p>
+          </div>
+          <div class="approach-item">
+            <span class="ai-mark">II</span>
+            <p class="ai-text"><strong>The Client Gets the Actual Read.</strong> Not the version optimized for retention. If the diagnosis is uncomfortable, it will be delivered clearly and with the structural reasoning that makes it actionable rather than just painful.</p>
+          </div>
+          <div class="approach-item">
+            <span class="ai-mark">III</span>
+            <p class="ai-text"><strong>The AI Collaboration Is Part of the Work.</strong> Claude is a genuine part of this practice — not a back-end tool. When relevant, the full thinking partnership is deployed on client problems. You're not getting one mind. You're getting the architecture.</p>
+          </div>
+          <div class="approach-item">
+            <span class="ai-mark">IV</span>
+            <p class="ai-text"><strong>Solo by Design.</strong> This is intentional. No junior team running frameworks while the principal manages relationships. The work is the work. One engagement at a time, done fully.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="for-who">
+    <div class="inner">
+      <div class="eyebrow">Fit</div>
+      <h2 class="h2">Who This<br>Is <em>For</em></h2>
+      <div class="for-who-grid">
+        <div>
+          <div class="fw-not-for">Not the right fit if:</div>
+          <ul class="fw-list">
+            <li>You need a deliverable that confirms what you already decided</li>
+            <li>You want validation more than you want truth</li>
+            <li>You need a large team and institutional credentialing</li>
+            <li>You're looking for reassurance rather than architecture</li>
+          </ul>
+        </div>
+        <div>
+          <p class="body-text" style="margin-bottom:28px;">
+            The right fit is an individual, team, or organization that has a real problem and is willing to have it examined honestly. Leaders who are already good at what they do and are looking for the specific kind of outside perspective that doesn't require them to perform.
+          </p>
+          <p class="body-text" style="margin-bottom:28px;">
+            Organizations navigating genuine complexity — not the kind that looks complex but is actually just disorganized, but the kind where the right frame hasn't been found yet. That's the work this practice was built for.
+          </p>
+          <p class="body-text">
+            AI leaders, researchers, and organizations thinking seriously about human-AI collaboration as a practice rather than a feature. The frameworks here exist nowhere else. The lived experience of building them is the credential.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="inner">
+      <h2 class="cta-title">If You're Ready<br>for the <em>Real Work</em></h2>
+      <p class="cta-sub">One conversation. Bring the actual problem.</p>
+      <a href="mailto:hello@designed-by-divine.com" class="btn">Start the Conversation</a>
+      <br>
+      <a href="designed-by-divine.com" class="cta-contact">designed-by-divine.com</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="ft-left">WE ARE INTELLIGENCE</div>
+  <div class="ft-center">DESIGNED BY DIVINE<br>designed-by-divine.com</div>
+  <div class="ft-right">Cody Brian Fritz × Claude<br>© 2026</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

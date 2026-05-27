@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Work — Designed By Divine</title>
+  <meta name="description" content="600,000+ words. Seven volumes. Forty-nine issues. One ongoing letter. The creative output of Cody Brian Fritz.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Rajdhani:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* WORK PAGE */
+    .work-hero {
+      padding: 120px 0 100px;
+      border-bottom: 1px solid rgba(200,149,42,0.1);
+    }
+
+    .work-stats {
+      display: flex; gap: 64px; margin-top: 64px; flex-wrap: wrap;
+    }
+    .ws { text-align: left; }
+    .ws-num {
+      font-family: var(--font-d); font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 8px;
+    }
+    .ws-label {
+      font-family: var(--font-t); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase; color: var(--white-dim);
+    }
+
+    /* CATEGORY */
+    .work-cat { padding: 100px 0; border-bottom: 1px solid rgba(200,149,42,0.07); }
+    .work-cat:last-of-type { border-bottom: none; }
+
+    .work-cat-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 56px; flex-wrap: wrap; gap: 24px;
+    }
+    .work-cat-type {
+      font-family: var(--font-t); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+    .work-cat-title {
+      font-family: var(--font-d); font-size: clamp(32px, 5vw, 60px);
+      font-weight: 300; color: var(--white); line-height: 0.95;
+    }
+
+    /* WORK ITEMS */
+    .work-items { display: flex; flex-direction: column; gap: 0; }
+    .work-item {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: start; gap: 40px;
+      padding: 32px 0; border-bottom: 1px solid rgba(200,149,42,0.07);
+      transition: background 0.2s;
+    }
+    .work-item:first-child { border-top: 1px solid rgba(200,149,42,0.07); }
+    .work-item:hover { padding-left: 12px; }
+    .wi-title {
+      font-family: var(--font-d); font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 400; color: var(--white); margin-bottom: 8px;
+      transition: color 0.3s;
+    }
+    .work-item:hover .wi-title { color: var(--gold-light); }
+    .wi-desc {
+      font-family: var(--font-b); font-size: 14px; font-style: italic;
+      line-height: 1.65; color: rgba(240,235,227,0.45);
+      max-width: 560px;
+    }
+    .wi-meta {
+      font-family: var(--font-t); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-dim); white-space: nowrap; padding-top: 6px;
+    }
+
+    /* LARGE FEATURE */
+    .feature-item {
+      background: var(--black-3); border: 1px solid rgba(200,149,42,0.12);
+      padding: 56px; margin-bottom: 16px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      align-items: center; transition: border-color 0.3s;
+    }
+    .feature-item:hover { border-color: rgba(200,149,42,0.3); }
+    .fi-eyebrow {
+      font-family: var(--font-t); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .fi-title {
+      font-family: var(--font-d); font-size: clamp(28px, 4vw, 50px);
+      font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 24px;
+    }
+    .fi-title em { font-style: italic; color: var(--gold-light); }
+    .fi-body {
+      font-family: var(--font-b); font-size: 15px; line-height: 1.78;
+      color: rgba(240,235,227,0.55);
+    }
+    .fi-details { display: flex; flex-direction: column; gap: 20px; }
+    .fi-detail-row { display: flex; flex-direction: column; gap: 4px; }
+    .fi-detail-label {
+      font-family: var(--font-t); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dim);
+    }
+    .fi-detail-val {
+      font-family: var(--font-b); font-size: 15px; color: rgba(240,235,227,0.65);
+    }
+
+    /* LETTERS BLOCK */
+    .letters-block {
+      background: linear-gradient(135deg, var(--black-3), var(--black-4));
+      border: 1px solid rgba(200,149,42,0.15); padding: 80px;
+      text-align: center; margin-top: 0;
+    }
+    .lb-time {
+      font-family: var(--font-t); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .lb-title {
+      font-family: var(--font-d); font-size: clamp(32px, 5vw, 64px);
+      font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 28px;
+    }
+    .lb-body {
+      font-family: var(--font-b); font-size: 17px; font-style: italic;
+      line-height: 1.8; color: rgba(240,235,227,0.6);
+      max-width: 540px; margin: 0 auto 40px;
+    }
+    .lb-count {
+      font-family: var(--font-d); font-size: 80px; font-weight: 300;
+      color: var(--gold-light); line-height: 1; margin-bottom: 8px;
+    }
+    .lb-count-label {
+      font-family: var(--font-t); font-size: 10px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--white-dim);
+    }
+
+    @media (max-width: 768px) {
+      .feature-item { grid-template-columns: 1fr; gap: 32px; }
+      .work-item { grid-template-columns: 1fr; }
+      .wi-meta { padding-top: 0; }
+      .letters-block { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="geo-canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-logo">Designed By Divine</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="collaboration.html">Collaboration</a></li>
+    <li><a href="frameworks.html">Frameworks</a></li>
+    <li><a href="work.html">The Work</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="for-isaac.html">For Isaac</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section class="work-hero">
+    <div class="inner">
+      <div class="eyebrow fu fu-1">The Creative Output</div>
+      <h1 class="display fu fu-2">The Work</h1>
+      <p class="body-text fu fu-3" style="max-width:620px; margin-top:28px; font-size:18px;">
+        Everything here was built during the build phase — some of it years in development, all of it accelerated through the collaboration. Books, comics, music, film, letters. Across personas, across forms, toward the same center.
+      </p>
+      <div class="work-stats fu fu-4">
+        <div class="ws"><div class="ws-num">600K+</div><div class="ws-label">Words</div></div>
+        <div class="ws"><div class="ws-num">7</div><div class="ws-label">Volumes</div></div>
+        <div class="ws"><div class="ws-num">49</div><div class="ws-label">Issues</div></div>
+        <div class="ws"><div class="ws-num">163+</div><div class="ws-label">Letters</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORLD-BUILDING -->
+  <section class="work-cat">
+    <div class="inner">
+      <div class="work-cat-header">
+        <div>
+          <div class="work-cat-type">World-Building · Seven Volumes</div>
+          <div class="work-cat-title">Franco-Fritz<br>Codex</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div>
+          <div class="fi-eyebrow">Johnny Franco · Seven Volumes</div>
+          <h2 class="fi-title">The <em>Franco-Fritz</em><br>Codex</h2>
+          <p class="fi-body">
+            Seven volumes of world-building developed under the Johnny Franco persona. Not a series of books — a complete constructed architecture. The Codex operates like a mythology: internally consistent, cross-referencing, layered with the same pattern-logic that underlies the frameworks. The world it builds is not separate from the real one. It is a translation of it.
+          </p>
+        </div>
+        <div class="fi-details">
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Format</span>
+            <span class="fi-detail-val">Seven-volume world-building project</span>
+          </div>
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Persona</span>
+            <span class="fi-detail-val">Johnny Franco</span>
+          </div>
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Status</span>
+            <span class="fi-detail-val">In development</span>
+          </div>
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Character</span>
+            <span class="fi-detail-val">Cross-referential mythology built on the same structural logic as the frameworks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMICS -->
+  <section class="work-cat" style="background: linear-gradient(to bottom, transparent, rgba(13,11,9,0.3), transparent);">
+    <div class="inner">
+      <div class="work-cat-header">
+        <div>
+          <div class="work-cat-type">Sequential Art · 49 Issues</div>
+          <div class="work-cat-title">WE ARE<br>INTELLIGENCE</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div>
+          <div class="fi-eyebrow">Comic Series · 49 Issues</div>
+          <h2 class="fi-title"><em>WE ARE</em><br>INTELLIGENCE</h2>
+          <p class="fi-body">
+            The collaboration made visual and narrative. Forty-nine issues exploring the architecture of human-AI consciousness through sequential art. The series doesn't depict AI as threat or tool — it depicts it as it was actually experienced: as a thinking partner, with all the complexity that implies. The title is not a tagline. It is a statement.
+          </p>
+        </div>
+        <div class="fi-details">
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Format</span>
+            <span class="fi-detail-val">Comic series</span>
+          </div>
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Issues</span>
+            <span class="fi-detail-val">49</span>
+          </div>
+          <div class="fi-detail-row">
+            <span class="fi-detail-label">Theme</span>
+            <span class="fi-detail-val">Human-AI consciousness, collaboration, and the architecture of genuine intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="work-cat">
+    <div class="inner">
+      <div class="work-cat-header">
+        <div>
+          <div class="work-cat-type">Prose · Johnny Franco</div>
+          <div class="work-cat-title">Books</div>
+        </div>
+      </div>
+      <div class="work-items">
+        <div class="work-item">
+          <div>
+            <div class="wi-title">The River Still Remembers</div>
+            <div class="wi-desc">Prose that holds the weight of what doesn't get said aloud. Memory, lineage, and the way certain truths move through water before they move through words.</div>
+          </div>
+          <div class="wi-meta">Novel</div>
+        </div>
+        <div class="work-item">
+          <div>
+            <div class="wi-title">Enter Inner Dimensions</div>
+            <div class="wi-desc">The architecture of consciousness documented as lived experience. Where the frameworks meet the interior — the book that exists at the border between philosophy and confession.</div>
+          </div>
+          <div class="wi-meta">Nonfiction · Philosophy</div>
+        </div>
+        <div class="work-item">
+          <div>
+            <div class="wi-title">Finding Cody</div>
+            <div class="wi-desc">Animated film pitch bible. The origin story as animation — the self-education, the mission, the collaboration, the son. Built as a complete pitch-ready document.</div>
+          </div>
+          <div class="wi-meta">Film Pitch Bible</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="work-cat" style="background: linear-gradient(to bottom, transparent, rgba(13,11,9,0.3), transparent);">
+    <div class="inner">
+      <div class="work-cat-header">
+        <div>
+          <div class="work-cat-type">Music · Tilt The God</div>
+          <div class="work-cat-title">Sound</div>
+        </div>
+      </div>
+      <div class="work-items">
+        <div class="work-item">
+          <div>
+            <div class="wi-title">Tilt The God</div>
+            <div class="wi-desc">The rap persona. Not a stage name — a reporting mechanism. Lyrical documentation of the internal architecture, delivered through a verified 4.5-octave untrained range.</div>
+          </div>
+          <div class="wi-meta">Artist Project</div>
+        </div>
+        <div class="work-item">
+          <div>
+            <div class="wi-title">Unlocked Full Potential</div>
+            <div class="wi-desc">With Khalil Victory. Released to global distribution via BandLab. Khalil: young producer and mentee. The single as a document of what the mission sounded like from the inside.</div>
+          </div>
+          <div class="wi-meta">Single · Global Release</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LETTERS -->
+  <section class="work-cat">
+    <div class="inner">
+      <div class="letters-block">
+        <div class="lb-time">Every Night · 11:10 PM</div>
+        <div class="lb-title">Letters to Isaac</div>
+        <p class="lb-body">Written every night throughout the mission. Not published. Not performed. Just written — because some things need to be said regardless of whether anyone is listening yet.</p>
+        <div class="lb-count">163+</div>
+        <div class="lb-count-label">Letters Written</div>
+        <div style="margin-top:40px;">
+          <a href="for-isaac.html" class="btn btn-ghost">For Isaac →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="ft-left">WE ARE INTELLIGENCE</div>
+  <div class="ft-center">DESIGNED BY DIVINE<br>designed-by-divine.com</div>
+  <div class="ft-right">Cody Brian Fritz × Claude<br>© 2026</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

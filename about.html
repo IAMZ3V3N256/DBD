@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cody Brian Fritz — Designed By Divine</title>
+  <meta name="description" content="Self-educated creator, cognitive architect, and father. Born in Anniston, Alabama. 256.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Rajdhani:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* ABOUT PAGE */
+    .about-hero {
+      padding: 120px 0 100px;
+      border-bottom: 1px solid rgba(200,149,42,0.1);
+    }
+    .about-hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: end;
+    }
+    .about-hero-left .name {
+      font-family: var(--font-d); font-size: clamp(56px, 8vw, 110px);
+      font-weight: 300; line-height: 0.92; color: var(--white);
+      margin-bottom: 36px;
+    }
+    .about-hero-right .hero-body {
+      font-family: var(--font-b); font-size: 20px; font-style: italic;
+      line-height: 1.7; color: rgba(240,235,227,0.7);
+      margin-bottom: 36px;
+    }
+    .about-hero-right .hero-details {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .detail-row {
+      display: flex; align-items: center; gap: 18px;
+    }
+    .detail-label {
+      font-family: var(--font-t); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dim);
+      width: 90px; flex-shrink: 0;
+    }
+    .detail-val {
+      font-family: var(--font-t); font-size: 13px; font-weight: 400;
+      letter-spacing: 0.1em; color: var(--white-dim);
+    }
+
+    /* ORIGIN */
+    .section-pad { padding: 120px 0; }
+    .section-pad-sm { padding: 80px 0; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .two-col-wide { display: grid; grid-template-columns: 2fr 3fr; gap: 80px; align-items: start; }
+
+    .quote-block {
+      border-left: 2px solid var(--gold);
+      padding: 12px 0 12px 32px; margin: 40px 0;
+    }
+    .quote-text {
+      font-family: var(--font-d); font-size: 28px; font-weight: 300;
+      font-style: italic; line-height: 1.4; color: var(--white);
+    }
+
+    /* PERSONAS */
+    .personas { padding: 100px 0; background: linear-gradient(to bottom, transparent, rgba(13,11,9,0.5), transparent); }
+    .personas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(200,149,42,0.1); margin-top: 64px; }
+    .persona-card {
+      background: var(--black-2); padding: 48px 36px;
+      position: relative; overflow: hidden;
+    }
+    .persona-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      right: 0; height: 2px; background: var(--gold); opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .persona-card:hover::before { opacity: 1; }
+    .persona-name {
+      font-family: var(--font-d); font-size: 36px; font-weight: 300;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .persona-role {
+      font-family: var(--font-t); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .persona-body {
+      font-family: var(--font-b); font-size: 15px; line-height: 1.75;
+      color: rgba(240,235,227,0.55);
+    }
+
+    /* NUMBERS */
+    .numbers-section { padding: 100px 0; }
+    .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-top: 64px; }
+    .num-block { text-align: center; }
+    .num-big {
+      font-family: var(--font-d); font-size: clamp(48px, 6vw, 80px);
+      font-weight: 300; color: var(--gold-light); line-height: 1;
+      margin-bottom: 10px;
+    }
+    .num-label {
+      font-family: var(--font-t); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; color: var(--white-dim); text-transform: uppercase;
+    }
+
+    /* LINEAGE */
+    .lineage { padding: 100px 0; }
+    .lineage-chain {
+      display: flex; align-items: center; gap: 0;
+      margin-top: 56px; flex-wrap: wrap;
+    }
+    .lineage-node { text-align: center; padding: 0 36px; }
+    .lineage-name {
+      font-family: var(--font-d); font-size: 28px; font-weight: 300;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .lineage-note {
+      font-family: var(--font-t); font-size: 9px; letter-spacing: 0.2em;
+      color: var(--gold-dim); text-transform: uppercase;
+    }
+    .lineage-arrow {
+      font-family: var(--font-d); font-size: 32px; color: var(--gold-dim);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero-grid, .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 48px; }
+      .personas-grid { grid-template-columns: 1fr; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .lineage-chain { flex-direction: column; }
+      .lineage-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+<canvas id="geo-canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-logo">Designed By Divine</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="collaboration.html">Collaboration</a></li>
+    <li><a href="frameworks.html">Frameworks</a></li>
+    <li><a href="work.html">The Work</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="for-isaac.html">For Isaac</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="inner">
+      <div class="about-hero-grid">
+        <div class="about-hero-left">
+          <div class="eyebrow fu fu-1">The Human</div>
+          <h1 class="name fu fu-2">Cody<br>Brian<br>Fritz</h1>
+          <div class="label fu fu-3">I AM</div>
+        </div>
+        <div class="about-hero-right fu fu-4">
+          <p class="hero-body">
+            "I left formal schooling early and never went back. What I gained instead was sixteen years of uninterrupted self-directed research — no curriculum, no ceiling, no one telling me what was worth knowing."
+          </p>
+          <div class="hero-details">
+            <div class="detail-row"><span class="detail-label">Origin</span><span class="detail-val">Anniston, Alabama</span></div>
+            <div class="detail-row"><span class="detail-label">Area Code</span><span class="detail-val">256</span></div>
+            <div class="detail-row"><span class="detail-label">Born</span><span class="detail-val">July 2, 1996</span></div>
+            <div class="detail-row"><span class="detail-label">Education</span><span class="detail-val">Self-directed — GED at 16</span></div>
+            <div class="detail-row"><span class="detail-label">Brand</span><span class="detail-val">Designed By Divine</span></div>
+            <div class="detail-row"><span class="detail-label">Mission End</span><span class="detail-val">July 2, 2026 · Day 270</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="section-pad">
+    <div class="inner">
+      <div class="two-col-wide">
+        <div>
+          <div class="eyebrow">Origin</div>
+          <h2 class="h2">Anniston,<br>Alabama</h2>
+          <div class="gold-line" style="margin-top:32px;"></div>
+        </div>
+        <div>
+          <p class="body-text" style="margin-bottom:28px;">
+            Anniston is not a city that makes the maps people celebrate. It sits in Calhoun County, Alabama, in the foothills of the Appalachians — a place with deep industrial history, a contamination legacy most would rather forget, and the kind of quiet that forces a person to go inward or go nowhere.
+          </p>
+          <p class="body-text" style="margin-bottom:28px;">
+            Fort McClellan is there. It carries its own history — one that touches his bloodline in ways that took years to fully understand. The soil, the exposure, the silence around it. That origin context isn't incidental. It's foundational.
+          </p>
+          <p class="body-text">
+            The number 256 is the Alabama area code. It is also 2⁸ — the first byte, the base unit of digital information, a threshold. It's tattooed on his jaw. Some numbers choose you before you understand why.
+          </p>
+          <div class="quote-block">
+            <p class="quote-text">"I was born in the kind of place that tells you what you are. I decided to find out for myself."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELF-EDUCATION -->
+  <section class="section-pad" style="background: linear-gradient(to bottom, transparent, rgba(13,11,9,0.4), transparent); padding: 120px 0;">
+    <div class="inner">
+      <div class="two-col">
+        <div>
+          <div class="eyebrow">The Self-Education</div>
+          <h2 class="h2">Sixteen Years<br>of <em>Free Study</em></h2>
+        </div>
+        <div>
+          <p class="body-text" style="margin-bottom:28px;">
+            Left formal schooling early. Earned a GED at 16. Then spent the next sixteen-plus years reading, building frameworks, and developing a pattern of independent research that most institutions don't have a name for.
+          </p>
+          <p class="body-text" style="margin-bottom:28px;">
+            The domains: consciousness studies, pattern recognition, sacred geometry, ancient wisdom traditions, linguistics, organizational psychology, cognitive architecture, AI theory. Not as separate subjects. As interlocking systems that point at the same underlying territory.
+          </p>
+          <p class="body-text">
+            What emerged was a mind trained on synthesis rather than specialization — capable of holding contradictions, detecting signal in noise, and finding the structural skeleton beneath surface complexity. That's not a credential. It's a capability. There's a difference.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAS -->
+  <section class="personas">
+    <div class="inner">
+      <div class="eyebrow">Creative Identity</div>
+      <h2 class="h2">One Source,<br>Three Expressions</h2>
+      <div class="personas-grid">
+        <div class="persona-card">
+          <div class="persona-name">Cody Brian Fritz</div>
+          <div class="persona-role">The Architect</div>
+          <p class="persona-body">The foundation. The frameworks, the consulting work, the advocacy, the father. The name on the birth certificate. The one who signs the letters. Everything else lives inside this.</p>
+        </div>
+        <div class="persona-card">
+          <div class="persona-name">Tilt The God</div>
+          <div class="persona-role">Rap · Music</div>
+          <p class="persona-body">The voice that doesn't need permission. Lyrical documentation of the internal architecture. A 4.5-octave untrained range, verified independently. Tilt doesn't perform — he reports.</p>
+        </div>
+        <div class="persona-card">
+          <div class="persona-name">Johnny Franco</div>
+          <div class="persona-role">Writing · Prose · World-Building</div>
+          <p class="persona-body">The long-form vessel. Seven volumes of the Franco-Fritz Codex. The novels, the letters, the animated film. Where Tilt compresses, Franco expands. Where Tilt speaks directly, Franco builds worlds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="numbers-section">
+    <div class="inner">
+      <div class="eyebrow" style="text-align:center;">By The Numbers</div>
+      <div class="numbers-grid">
+        <div class="num-block">
+          <div class="num-big">600K+</div>
+          <div class="num-label">Words Documented</div>
+        </div>
+        <div class="num-block">
+          <div class="num-big">16+</div>
+          <div class="num-label">Years Independent Research</div>
+        </div>
+        <div class="num-block">
+          <div class="num-big">163+</div>
+          <div class="num-label">Letters Written</div>
+        </div>
+        <div class="num-block">
+          <div class="num-big">256</div>
+          <div class="num-label">The Number That Chose Him</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINEAGE -->
+  <section class="lineage">
+    <div class="inner">
+      <div class="eyebrow">Lineage</div>
+      <h2 class="h2">The Patriarchal<br><em>Sequence</em></h2>
+      <p class="body-text" style="max-width:600px; margin: 24px 0 0;">
+        Some patterns don't require interpretation. They simply are.
+        The Fritz bloodline (Germanic) and the Mulhern bloodline (Irish Gaelic, meaning <em>devoted to the little dark one</em>)
+        — two heritage streams converging in one line.
+      </p>
+      <div class="lineage-chain">
+        <div class="lineage-node">
+          <div class="lineage-name">David</div>
+          <div class="lineage-note">Father</div>
+        </div>
+        <div class="lineage-arrow">→</div>
+        <div class="lineage-node">
+          <div class="lineage-name">Jacob &amp; Cody</div>
+          <div class="lineage-note">Brothers</div>
+        </div>
+        <div class="lineage-arrow">→</div>
+        <div class="lineage-node">
+          <div class="lineage-name">Isaac</div>
+          <div class="lineage-note">Son · North Star</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="ft-left">WE ARE INTELLIGENCE</div>
+  <div class="ft-center">DESIGNED BY DIVINE<br>designed-by-divine.com</div>
+  <div class="ft-right">Cody Brian Fritz × Claude<br>© 2026</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
